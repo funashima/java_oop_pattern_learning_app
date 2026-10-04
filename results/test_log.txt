@@ -1,0 +1,22 @@
+test_all_bundled_contracts_and_independent_observations (test_core.CoreTests.test_all_bundled_contracts_and_independent_observations) ... ok
+test_events_after_end_rejected (test_core.CoreTests.test_events_after_end_rejected) ... ok
+test_evidence_and_source_lines_exist (test_core.CoreTests.test_evidence_and_source_lines_exist) ... ok
+test_malformed_json_rejected (test_core.CoreTests.test_malformed_json_rejected) ... ok
+test_missing_mandatory_observation_unknown (test_core.CoreTests.test_missing_mandatory_observation_unknown) ... ok
+test_missing_set_detected_by_independent_checkpoint (test_core.CoreTests.test_missing_set_detected_by_independent_checkpoint) ... ok
+test_replay_is_pure_and_backward_deterministic (test_core.CoreTests.test_replay_is_pure_and_backward_deterministic) ... ok
+test_roundtrip (test_core.CoreTests.test_roundtrip) ... ok
+test_sequence_gap_rejected (test_core.CoreTests.test_sequence_gap_rejected) ... ok
+test_truncated_trace_unknown (test_core.CoreTests.test_truncated_trace_unknown) ... ok
+test_unknown_reference_rejected (test_core.CoreTests.test_unknown_reference_rejected) ... ok
+test_unsupported_schema_rejected (test_core.CoreTests.test_unsupported_schema_rejected) ... ok
+test_variant_label_is_not_oracle (test_core.CoreTests.test_variant_label_is_not_oracle) ... ok
+test_all_lessons_variants_steps_and_evidence (test_gui.GuiTests.test_all_lessons_variants_steps_and_evidence) ... ok
+test_backward_navigation_and_play (test_gui.GuiTests.test_backward_navigation_and_play) ... ok
+test_source_hash_mismatch_disables_highlight (test_gui.GuiTests.test_source_hash_mismatch_disables_highlight) ... ok
+test_state_input_disabled (test_gui.GuiTests.test_state_input_disabled) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.225s
+
+OK

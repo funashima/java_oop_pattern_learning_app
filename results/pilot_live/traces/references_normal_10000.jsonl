@@ -1,0 +1,12 @@
+{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "references", "variant": "normal", "input": 10000, "java": "17.0.20", "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 2, "kind": "new", "line": 15, "id": "refs", "type": "References", "fields": {"a": null, "b": null}}
+{"seq": 3, "kind": "new", "line": 16, "id": "box", "type": "Box", "fields": {"value": 0}}
+{"seq": 4, "kind": "set", "line": 16, "id": "refs", "field": "a", "value": {"ref": "box"}}
+{"seq": 5, "kind": "set", "line": 19, "id": "refs", "field": "b", "value": {"ref": "box"}}
+{"seq": 6, "kind": "checkpoint", "line": 20, "name": "alias", "observed": {"refs": {"type": "References", "fields": {"a": {"ref": "box"}, "b": {"ref": "box"}}}, "box": {"type": "Box", "fields": {"value": 0}}}}
+{"seq": 7, "kind": "call", "line": 21, "from": "refs", "to": "box", "method": "write", "arg": 10000}
+{"seq": 8, "kind": "set", "line": 22, "id": "box", "field": "value", "value": 10000}
+{"seq": 9, "kind": "return", "line": 23, "from": "box", "value": 10000}
+{"seq": 10, "kind": "checkpoint", "line": 24, "name": "write", "observed": {"refs": {"type": "References", "fields": {"a": {"ref": "box"}, "b": {"ref": "box"}}}, "box": {"type": "Box", "fields": {"value": 10000}}}}
+{"seq": 11, "kind": "result", "line": 25, "value": {"a": 10000, "b": 10000, "same": true}}
+{"seq": 12, "kind": "end", "line": 149, "complete": true}

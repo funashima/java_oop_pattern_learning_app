@@ -1,0 +1,29 @@
+{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "observer", "variant": "normal", "input": 1, "java": "17.0.20", "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 2, "kind": "new", "line": 121, "id": "subject", "type": "Subject", "fields": {"listeners": []}}
+{"seq": 3, "kind": "new", "line": 122, "id": "display_a", "type": "Display", "fields": {"value": 0, "updates": 0}}
+{"seq": 4, "kind": "new", "line": 123, "id": "display_b", "type": "Display", "fields": {"value": 0, "updates": 0}}
+{"seq": 5, "kind": "set", "line": 107, "id": "subject", "field": "listeners", "value": [{"ref": "display_a"}]}
+{"seq": 6, "kind": "set", "line": 107, "id": "subject", "field": "listeners", "value": [{"ref": "display_a"}, {"ref": "display_b"}]}
+{"seq": 7, "kind": "checkpoint", "line": 124, "name": "subscribed", "observed": {"subject": {"type": "Subject", "fields": {"listeners": [{"ref": "display_a"}, {"ref": "display_b"}]}}, "display_a": {"type": "Display", "fields": {"value": 0, "updates": 0}}, "display_b": {"type": "Display", "fields": {"value": 0, "updates": 0}}}}
+{"seq": 8, "kind": "cycle_begin", "line": 110, "cycle": "first", "members": [{"ref": "display_a"}, {"ref": "display_b"}], "input": 1}
+{"seq": 9, "kind": "call", "line": 114, "from": "subject", "to": "display_a", "method": "update", "arg": 1}
+{"seq": 10, "kind": "set", "line": 102, "id": "display_a", "field": "value", "value": 1}
+{"seq": 11, "kind": "set", "line": 102, "id": "display_a", "field": "updates", "value": 1}
+{"seq": 12, "kind": "return", "line": 115, "from": "display_a", "value": 1}
+{"seq": 13, "kind": "call", "line": 114, "from": "subject", "to": "display_b", "method": "update", "arg": 1}
+{"seq": 14, "kind": "set", "line": 102, "id": "display_b", "field": "value", "value": 1}
+{"seq": 15, "kind": "set", "line": 102, "id": "display_b", "field": "updates", "value": 1}
+{"seq": 16, "kind": "return", "line": 115, "from": "display_b", "value": 1}
+{"seq": 17, "kind": "cycle_end", "line": 117, "cycle": "first"}
+{"seq": 18, "kind": "checkpoint", "line": 125, "name": "notified", "observed": {"subject": {"type": "Subject", "fields": {"listeners": [{"ref": "display_a"}, {"ref": "display_b"}]}}, "display_a": {"type": "Display", "fields": {"value": 1, "updates": 1}}, "display_b": {"type": "Display", "fields": {"value": 1, "updates": 1}}}}
+{"seq": 19, "kind": "set", "line": 108, "id": "subject", "field": "listeners", "value": [{"ref": "display_a"}]}
+{"seq": 20, "kind": "checkpoint", "line": 126, "name": "removed", "observed": {"subject": {"type": "Subject", "fields": {"listeners": [{"ref": "display_a"}]}}, "display_a": {"type": "Display", "fields": {"value": 1, "updates": 1}}, "display_b": {"type": "Display", "fields": {"value": 1, "updates": 1}}}}
+{"seq": 21, "kind": "cycle_begin", "line": 110, "cycle": "second", "members": [{"ref": "display_a"}], "input": 2}
+{"seq": 22, "kind": "call", "line": 114, "from": "subject", "to": "display_a", "method": "update", "arg": 2}
+{"seq": 23, "kind": "set", "line": 102, "id": "display_a", "field": "value", "value": 2}
+{"seq": 24, "kind": "set", "line": 102, "id": "display_a", "field": "updates", "value": 2}
+{"seq": 25, "kind": "return", "line": 115, "from": "display_a", "value": 2}
+{"seq": 26, "kind": "cycle_end", "line": 117, "cycle": "second"}
+{"seq": 27, "kind": "checkpoint", "line": 127, "name": "notified_again", "observed": {"subject": {"type": "Subject", "fields": {"listeners": [{"ref": "display_a"}]}}, "display_a": {"type": "Display", "fields": {"value": 2, "updates": 2}}, "display_b": {"type": "Display", "fields": {"value": 1, "updates": 1}}}}
+{"seq": 28, "kind": "result", "line": 129, "value": {"a_updates": 2, "b_updates": 1, "a_value": 2, "b_value": 1}}
+{"seq": 29, "kind": "end", "line": 149, "complete": true}

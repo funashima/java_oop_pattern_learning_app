@@ -1,0 +1,24 @@
+{
+  "title": "04 Observer",
+  "subtitle": "登録先への通知と、登録解除を追う",
+  "intro": "Subjectに2つのDisplayを登録して通知し、一方を解除して再通知します。同期処理で、通知中の登録変更と例外は扱いません。比較例は登録リストの最後への通知を省略します。",
+  "question": "2回目の通知が届くDisplayはどちらでしょうか。根拠となる参照を探してください。",
+  "change": "通知漏れがあっても表示モデル自体はJavaの実行に一致し得る。整合性と課題の正しさを区別する。",
+  "roles": {
+    "subject": "Subject",
+    "display_a": "Observer A",
+    "display_b": "Observer B"
+  },
+  "declared": {
+    "subject.listeners": "List<Observer>"
+  },
+  "structure": [
+    "Observer: update(value)",
+    "Display は Observer を実装",
+    "Subject は observers のリストを保持"
+  ],
+  "broken": "最後の登録先への通知を省略",
+  "source_start": 97,
+  "source_end": 131,
+  "id": "observer"
+}

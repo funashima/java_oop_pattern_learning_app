@@ -1,0 +1,421 @@
+% !TeX program = lualatex
+% UTF-8. Compile twice with LuaLaTeX and LuaTeX-ja.
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,enumitem}
+\usepackage{xcolor,listings,graphicx}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{url}
+\setlength{\emergencystretch}{3em}
+\setlength{\parskip}{0.2em}
+\setlist{itemsep=0.15em,topsep=0.4em}
+\renewcommand{\arraystretch}{1.17}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible,
+ keepspaces=true,showstringspaces=false,frame=single}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Javaオブジェクト指向学習用可視化アプリ\newline
+\large Python／PyQt6をつかった簡易実装・評価と今後の課題}
+\author{Hiroki Funashima}
+\date{Sunday, October 4, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+本書は、Javaのオブジェクト指向概念とデザインパターンを学ぶための可視化アプリを、なにかの研究として何かの研究としてつかえないかなーという計画とパイロット実装をまとめた独立文書である。研究対象を、参照と同一性の基礎教材、およびStrategy・State・Observerの3パターンに限定する。アプリ本体はPython・PyQt6で実装し、同梱Java教材の実行記録を読み取って、参照、実オブジェクト型、呼び出し、状態変化、ソース位置を提示する。研究評価では、人の学習効果を測定せず、表示モデルとJavaの観測状態との整合性、正常実装と契約違反実装の区別、記録の再現性を扱う。実装済みパイロットは26シナリオをJavaで実行し、86チェックポイントで観測状態が一致した。正常13件と比較13件は事前に定義した契約に対して所期の判定となった。ただし誤実装は4種類であり、この結果は自作・開発用コーパスにおける動作確認である。未知実装への一般化、教材追加時の保守性の優位、教育効果は未検証である。23パターンへの網羅的拡張は必須成果から外し、学生が独立した題材と評価を追加することを卒業研究の中心に据える。
+\end{abstract}
+\clearpage
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+\section{結論と研究の位置付け}
+\subsection{研究としての適切な範囲}
+本研究は、対象を限定すればたとえば、卒業研究として取り組みやすいという結論になった。推奨する題目は次のとおりである。
+\begin{quote}
+Javaの参照とオブジェクト相互作用を対象とする学習用可視化アプリの試作と実行整合性評価
+\end{quote}
+パターン名を題目に含める場合には、「Strategy・State・Observerを対象とした」と対象範囲を明記する。全23パターンの実装、汎用Javaデバッガ、形式的な意味保存証明、大規模な保守性比較を一度に達成する計画にはしない。
+
+たとえば、卒業研究に限っていえば、重要なのは、学生が問題設定、設計判断、実装の原理、実験、限界を説明できることである。本案はその観点からの提案であり、コースでの授業、特に情報実習2や3などの正式な評価基準を代替するものではない。担当学生の経験、残り期間、教員が提供する基盤の範囲に応じて調整する必要があるかもしれない。
+
+\subsection{開発目的と実証する主張}
+目的は、初学者がJavaのプログラムと実行中のオブジェクト関係を対応付けて探索できる環境を提供することである。研究上の主張は、「観測対象の実行状態を正確に再構成できる」「定義した課題の違反を根拠付きで示せる」に限定する。
+
+前提として、
+\begin{itemize}
+	\item 人を対象にした学習実験は必須としない。
+	\item 理解度、学習時間、認知負荷、使いやすさ、開発者の主観的可読性は評価しない。
+\end{itemize}
+可視化の正しさを確認できても、学習成果が向上したことにはならない。GUIの自動操作試験や開発者による画面確認は、被験者実験とは別の実装検証である。
+\clearpage
+
+\section{検討の理由と優先順位}
+\subsection{作業量を増やす要因}
+23種類すべてを扱うと、Java教材だけでなく、役割注釈、説明、正常例、誤実装、入力、期待値、図の配置、回帰試験が種類ごとに必要になる。さらに任意のJavaコードを受け付けると、構文解析、型情報、計測、例外、外部ライブラリ、実行制御などが追加される。高専卒研の限られた期間では、実装の拡張を優先した結果、研究としての評価と考察が不足するおそれがある。
+
+また、単に「23種類を作った」ことは教材の量を示すが、表示の正確性や設計の一般性を示すとは限らない。対象を絞っても、何を観測し、どこで破綻するかを調べれば、まとまりのある研究になる。
+
+\subsection{必須・選択・対象外}
+\begin{longtable}{P{21mm}P{65mm}P{64mm}}
+\toprule
+優先度 & 内容 & 完了を判断する基準\\\midrule
+\endhead
+必須 & 参照の基礎、Strategy、State、Observer & 各教材で正常例と課題違反例を説明し、再生できる。\\
+必須 & 実行記録・状態再構成・状態照合 & Javaの直接観測と表示モデルの対応を確認できる。\\
+必須 & 根拠付きの契約判定 & 判定の対象と根拠イベントを追跡できる。\\
+必須 & 再現スクリプトと結果表 & 他者が同じ条件で結果を再生成できる。\\
+卒研で追加 & 独立した題材・誤実装・評価入力 & パイロット作成に使っていない例で限界を確認する。\\
+選択 & 教材追加時の変更量の調査 & 変更前後の差分と変更理由を記録する。\\
+選択 & CompositeまたはDecoratorを1種類追加 & 既存モデルで表せることと追加実装が必要な点を区別する。\\
+対象外 & 23種類の完全対応、任意コード解析、並行処理 & 発展課題として文書化する。\\
+対象外 & 学習効果、Pythonの一般的優越性 & 本研究の結果から結論しない。\\
+\bottomrule
+\end{longtable}
+基本機能が安定しない段階では新パターンを増やさない。締切が短い場合には、基礎教材とStrategy・Observerに絞る代わりに、独立評価例と評価の説明を維持する。
+
+\section{背景知識と関連研究}
+\subsection{Javaの意味と教材の関係}
+Javaでは、参照型の変数が持つ値はオブジェクトへの参照であり、変数自体がオブジェクトそのものではない\cite{jls4}。例えば二つの変数が同じBoxを参照すれば、一方を通じたフィールド更新を他方からも観測できる。表示では変数を保持する場所と参照先の実体を分ける。
+
+インターフェース型の参照から呼び出す実装は、実行時の対象に依存する場合がある。メソッド呼び出しの動的な探索はJava言語仕様に定められている\cite{jls15}。パイロットではStrategyの\code{Price}と実体の\code{Regular}/\code{Discount}を使って、宣言型、実オブジェクト型、呼び出し先を対応付ける。ただしオーバーロード解決やJava全体の型検査を実装するものではない。
+
+GoFのデザインパターンは、再利用可能なオブジェクト指向設計の記述である\cite{gof}。パターン採用の価値は具体的な要求と変更に依存するため、クラス数が増えたことだけを改善とは扱わない。教材では委譲や通知による間接化の利点と、要素数・追跡箇所が増える代償の双方を説明する。
+
+\subsection{可視化研究との違い}
+既存研究であるJeliot 3は初学者向けにデータと制御の流れを可視化する\cite{jeliot}。JavaWizは実行記録に基づくグラフィカルデバッガであり、ヒープ、スタック、実行履歴等の表示を備える\cite{javawiz}。実行記録へ解説や問いを付けるPedagogical Execution Tracesの構想も公開されている\cite{pets}。したがって、実行を図示することや説明を付けること自体を新規としない。
+
+Python TutorのJava関連実装\code{java_visualize}では、表示フロントエンドを再利用し、Java用バックエンドへ置き換える構成が説明されている\cite{javavis}。この先行例はPython・PyQt6と同一構成ではないが、教育対象言語と表示基盤の分離には先行例があることを示す。
+
+本研究の卒研としての焦点は、少数の課題に対して、(1)参照・呼び出し・状態を結び付ける、(2)表示の整合性と教材契約を分ける、(3)誤実装の根拠を示す、という仕組みを実装し、再現可能に評価することである。既存研究にない機能であることは未確定であり、学術的な新規性を主張する場合は本文と実装をさらに比較する。
+\clearpage
+
+\section{Python実装の意義をどう扱うか}
+\subsection{実装言語と教育対象言語を分ける理由}
+Pythonは、GUI、JSON処理、評価スクリプトを一つの言語で扱うために採用する。PyQt6はQtのPythonバインディングであり\cite{pyqt}、描画はQtのGraphics View系の機能を利用する\cite{qgraphics}。Javaの計算はJavaで実行し、Python側では記録から状態を再構成する。
+
+この分担により、PythonでJava意味論を全面的に作り直す必要を避け、表示と評価のコードをPython側へ集約できる。ただし全ファイルがPythonになるわけではなく、Java教材と計測補助コードは残る。JDKを使わない再生モードでは、事前にJavaで取得した記録を利用する。
+
+\subsection{言語選択だけを新規性にしない}
+「Javaの教材をPythonで実装した」ことだけでは、研究上の独立した新規性は弱い。「Pythonだから学生や保守担当者が理解しやすい」という主張にも、本研究には人の理解を測る証拠がない。Python採用は実装条件として説明し、一般的な言語の優劣は結論しない。
+
+卒研で扱える貢献候補は、同じPython基盤の中で説明と役割情報を教材データへ分離し、ある変更がどのファイルまで波及したかを記録することである。例えば「説明文の変更はJSONだけで完了した」「新教材にはJavaと契約関数の変更が必要だった」と具体的に示す。コード行数だけで保守容易性を断定しない。
+
+\subsection{現時点で実証していないこと}
+パイロットは教材解説・役割・宣言型注釈をJSONに分離したが、教材ID、契約、Java実行分岐はコードに記述されている。新教材の追加はデータだけでは完結しない。従って「コアを変更せず23種類に拡張可能」「Python構成がJava構成より保守しやすい」とは主張しない。別言語で同等のGUIを作り直す比較は、今回の卒研では必須としない。
+\clearpage
+
+
+\section{研究課題と到達目標}
+以下にこのテーマの研究上の問い(Research Question, RQ)の候補を挙げる。
+\begin{longtable}{P{15mm}P{70mm}P{65mm}}
+\toprule
+番号 & 問い & 調べる対象\\\midrule
+\endhead
+RQ1 & 定義した観測点で、Pythonの再構成状態はJavaの実状態と一致するか。 & チェックポイントの型、フィールド、参照ID、参照共有。\\
+RQ2 & 指定した教材契約の違反を、イベント根拠とともに示せるか。 & 正常例、意図した誤実装、記録欠損、根拠ID。\\
+RQ3 & 独立した題材の追加にどの変更が必要か。 & 変更箇所、観測仕様の不足、契約の作り直し。\\
+\bottomrule
+\end{longtable}
+RQ1とRQ2を必須とし、RQ3は題材追加の実務記録として小さく実施する。機能量よりも、観測範囲と結果の意味を説明できることを完了条件にする。
+
+もし、万が一卒業研究になったとしたら、学生の最低到達目標は、1教材について、Javaの代入・呼び出し、出力イベント、Pythonの状態更新、図の変化、契約判定を順に追って説明できることである。さらに、正しく動く例だけでなく、何が不足すると判定できないかを説明する。
+\clearpage
+
+\section{実装したパイロットの構成}
+\subsection{処理の流れ}
+同梱Javaプログラムを単一ソースファイルモードで実行し、JSON Linesのイベントを出力する。Javaの単一ソースファイル実行は標準の\code{java}コマンドが提供する機能である\cite{javacmd}。Pythonはイベントを検証して状態を再構成し、PyQt6で表示する。Javaを起動しない場合は同梱記録を読む。
+
+\begin{longtable}{P{47mm}P{103mm}}
+\toprule
+ファイル・領域 & 実装した責務\\\midrule
+\endhead
+\code{java/PatternPilot.java} & 4教材、手動計測、反射による実オブジェクト観測、JSON出力。\\
+\code{pattern_lab/core.py} & 入力検証、状態再構成、契約判定、根拠、保存。Qtへ依存しない。\\
+\code{pattern_lab/runner.py} & 同梱Java起動、入力制限、タイムアウト、ソースハッシュ付与。\\
+\code{pattern_lab/gui.py} & 図、コード、履歴、説明、検証結果、比較、前進・後退。\\
+\code{lessons/*.json} & 日本語解説、問い、役割と宣言型の注釈。\\
+\code{traces/*.jsonl} & 正常4件・比較4件のJava実行記録。\\
+\code{evaluate.py} & 境界入力を含むJava実行と、CSV／JSONへの結果出力。\\
+\code{tests/} & コアとGUIの自動試験。\\
+\bottomrule
+\end{longtable}
+複数モジュールに分割したが、パイロット段階では高度なプラグイン機構や契約記述言語を導入しない。学生が全体を把握できる小さな構成を優先する。
+
+\subsection{参照と同一性}
+\code{References}が\code{a}と\code{b}を保持する。正常例では\code{b = a}とし、\code{b.value}へ値を代入する。比較例では\code{b = new Box()}とする。この比較例はJavaの文法や型規則に違反しないが、「aとbが同じBoxを参照する」という課題に違反する。
+
+GUI上では保持元と参照先を別の箱として表示する。入力0では両方の値が同じでも、同一性条件で違いを区別する。単に最終的な数値が一致しただけでは同じ振る舞いと結論しないことを示す教材である。
+
+\subsection{Strategy}
+\code{Checkout}は\code{Price}型のフィールドを持つ。最初は\code{Regular}、次に\code{Discount}へ差し替える。通常料金は入力値、割引料金はJava整数演算で入力値の8割とする。入力を0〜10000へ制限し、今回の計算で整数オーバーフローを生じない範囲にする。
+
+比較例では、選択済みの\code{price}を無視して最初の\code{Regular}を呼ぶ。入力0では結果の数値が同じになるが、呼び出し先の列が異なる。従って出力値だけでは見えない違いを、参照と呼び出しの観測で示せる。ただしこれは今回の契約に対する違反であり、任意のStrategy実装を判定する規則ではない。
+
+\subsection{State}
+\code{Gate}は\code{Locked}から\code{Open}へ遷移し、次の要求で通過回数を増やして\code{Locked}へ戻る。比較例は最初の状態変更を省略する。処理を担当する実体と、Contextが保持する状態の変化を追跡する。
+
+Strategyと構造が似ていることを示しながら、Stateでは要求と状態遷移の関係に注目する。構造だけで両パターンを自動分類する機能は持たない。State教材は固定した2回の要求を使い、GUIの数値入力は無効にする。
+
+\subsection{Observer}
+\code{Subject}に2つの\code{Display}を登録し、最初の通知を行う。その後に一方を解除し、残る一方へ再通知する。比較例は各通知時に登録リストの最後の相手を呼ばない。
+
+前提は、同期通知、重複登録なし、通知中の登録変更なし、コールバック例外なしである。この前提の下で、開始時の登録先へちょうど一度ずつ通知する契約を検証する。通知順序自体は契約に含めない。これはObserver一般のすべての実装へ強制する条件ではない。
+\clearpage
+
+\section{観測モデルと判定の意味}
+\subsection{イベントと状態}
+実行記録を$T=(e_1,\ldots,e_n)$、初期状態を$S_0$、イベント適用関数を$F$とすれば、
+\[
+ S_{k+1}=F(S_k,e_{k+1})
+\]
+によって状態を再構成する。$e_k$は第$k$イベント、$S_k$はその時点で観測しているオブジェクトの表である。JVM全体の状態ではない。
+
+主なイベントは生成登録\code{new}、フィールド更新\code{set}、呼び出し\code{call}、復帰\code{return}、照合点\code{checkpoint}である。参照は\verb|{"ref":"object_id"}|に相当するJSONオブジェクトとして表す。実オブジェクト型はJava側から取得し、宣言型は教材注釈として別に与える。
+
+後退操作は、保存済みの記録を先頭から指定位置まで再生する。JVMを逆実行する機能ではない。処理量は記録長に概ね比例するため、長大な記録向けの効率化は今後の課題である。
+
+\subsection{観測整合性と教材契約を分ける}
+表示用の再構成状態を$S_k$、実Javaオブジェクトから直接取得した観測状態を$J_k$とすると、対象チェックポイントで
+\[
+ S_k=J_k
+\]
+を照合する。両者は同じオブジェクトIDとフィールド形式で表される。\code{checkpoint}の内容を状態の更新には使わず、\code{new}と\code{set}から構成した状態との比較だけに用いる。
+
+一方、教材契約は、例えば「交換後にDiscountへ委譲する」「解錠後はOpenである」「全登録先へ通知する」という要求である。誤実装をそのとおり再生した場合、観測整合性はPASS、教材契約はFAILになる。両判定を同じものとして扱わない。
+
+\subsection{独立性の範囲}
+Javaの照合用スナップショットは、反射で実オブジェクトのフィールドを読み取り、出力済みイベントを参照しない。このため、フィールド更新の計測を取り忘れた場合を検出できる。一方、生成時と照合時でID・値変換の補助処理を共有するので、完全に独立した二実装ではない。型変換器に同じ誤りがある場合など、検出できない共通原因が残る。
+
+また、チェックポイント間で一時的に誤った表示が生じても、次の観測点までに状態が一致すれば、状態照合だけでは見逃す可能性がある。呼び出しの計測も手動であり、全呼び出しの網羅性を保証しない。卒研では、計測を削除・改変する試験を増やして、この限界を具体化する。
+
+\subsection{PASS・FAIL・UNKNOWN}
+PASSは、指定された有限記録で対象の条件を満たすことを表す。FAILは不一致を表す。UNKNOWNは完了記録、必須チェックポイント、通知境界等が足りず、教材契約を判定できないことを表す。
+
+契約判定器は\code{variant}という正常・比較のラベルを参照して合否を決めない。ラベルを付け替えても、実際の観測が同じなら同じ判定になることをテストする。実験スクリプトだけが、事前に定めた期待ラベルとの照合に用いる。
+
+判定根拠はイベント番号として保持し、GUIの判定行から根拠へ移動できる。現在は判定を支える観測点を示す機能であり、原因を一意に特定したり、最小の反例を自動抽出したりする機能ではない。
+\clearpage
+
+\section{GUIの操作と確認範囲}
+上部で教材、正常例／比較例、入力を指定する。中央にオブジェクト図、右側に教材説明・Javaソース・全記録の検証・正常例との比較を置き、下部に再生操作とイベント履歴を置く。線の色だけに依存せず、参照は実線、現在の呼び出しは橙の破線とラベルで区別する。
+
+「全記録の検証」は再生位置にかかわらず記録全体を評価する。ソースのSHA-256が一致するときだけ、イベントに対応する計測行を強調する。ソースが変わっている場合には誤った行対応を示さない。行は観測呼び出しの場所であり、Javaの全命令を1行ずつステップ実行する意味ではない。
+
+比較画面は、イベント番号ではなく\code{switch}や\code{notified}等の操作名で対応する状態を比較する。現在は差のあるオブジェクト名を列挙する簡易方式であり、二画面の完全同期やフィールド単位の差分強調は未実装である。
+
+画面はoffscreen環境で生成して確認し、日本語表示も確認した。自動操作試験では4教材×2variantの全再生位置、前進・後退、自動再生の切替、根拠への移動、ソース不一致時の表示を確認した。一般的なユーザビリティ評価は行っていない。
+\clearpage
+
+\section{実施したパイロット評価}
+\subsection{環境とコーパス}
+とりあえず、作ってみて検証してみた。検証環境はPython 3.12.14、PyQt6 6.11.0、Qt 6.11.0、OpenJDK 17.0.20、Linux x86\_64である。参照、Strategy、Observerは入力$0,1,100,10000$、Stateは固定シナリオを使用した。各教材に正常・比較の2variantがあるため、全26シナリオとなる。
+
+\begin{longtable}{P{34mm}P{24mm}P{25mm}P{26mm}P{31mm}}
+\toprule
+教材 & シナリオ数 & イベント数 & 状態照合数 & 契約の所期判定\\\midrule
+\endhead
+参照と同一性 & 8 & 12--13 & 16 & 8/8\\
+Strategy & 8 & 18 & 32 & 8/8\\
+State & 2 & 14--17 & 6 & 2/2\\
+Observer & 8 & 21--29 & 32 & 8/8\\\midrule
+合計 & 26 & --- & 86 & 26/26\\
+\bottomrule
+\end{longtable}
+イベント数は各記録の長さ、状態照合数は全シナリオを通じたチェックポイントの合計である。正常13件はPASS、比較13件はFAILであった。観測整合性は正常例・比較例ともに全86点で一致した。
+
+誤実装は4種類であり、比較13件は13種類の独立した誤りではない。また、開発時に利用した教材と同じ題材なので、未知実装に対する汎化精度とは解釈しない。100\%という値を一般的な検出性能として宣伝しない。
+
+\subsection{自動試験}
+コア13試験とGUI4試験、合計17試験が成功した。主な内容は次のとおりである。
+\begin{itemize}
+\item 同梱8記録の契約判定と状態照合。
+\item 正常・比較ラベルを入れ替えても判定が変わらないこと。
+\item 記録の途中切断や必須観測点の欠落がUNKNOWNになること。
+\item フィールド更新イベントを削除すると状態照合がFAILになること。
+\item 保存・読込の一致、前進・後退の再構成一致、入力データを変更しないこと。
+\item 連番異常、未知参照、未対応スキーマ、壊れたJSON、終了後イベントの拒否。
+\item GUIの全教材・全variantの操作、根拠への移動、ソースハッシュ不一致時の処理。
+\end{itemize}
+これは固定した回帰試験であり、任意の入力に対する形式的証明ではない。今後、境界条件と独立例を追加して改善する。
+
+\subsection{処理時間の予備測定}
+各記録についてウォームアップ後に30回、表示を伴わない状態再構成のみを測定した。記録ごとの中央値を教材内で集約した中央値は、参照0.0112 ms、Strategy 0.0141 ms、State 0.01355 ms、Observer 0.0204 msであった。小規模な記録のため、これらは大規模性能を示さない。GUI応答時間、Java起動時間、学生の作業時間とも異なる。
+
+測定値は\code{results/pilot_live/scenarios.csv}、環境と制約は\code{summary.json}、Java実行記録は同ディレクトリの\code{traces/}に保存した。Java起動時間はソースのコンパイルを含み、単純な教材実行時間とは区別する。統計的な有意差検定は実施していない。
+\clearpage
+
+\section{もし卒業研究としてやるとした場合に、追加すべき評価}
+\subsection{独立した題材の追加}
+最優先は、同じパターンでも題材を変えた教材を少なくとも1例追加することである。例えばStrategyを料金計算から並べ替え方針へ、Observerを表示通知から在庫通知へ変更する。ただし、名前だけの置換ではなく、状態や入力の構成を変える。
+
+実装を変更する前に期待結果と契約を文章で定義する。既存判定器がそのまま使える部分、オブジェクトIDや契約の書き換えが必要な部分を分けて記録する。この過程で、現在の判定器が汎用ではないことを学生自身が確認できる。
+
+\subsection{誤実装と観測誤りを分ける}
+誤実装試験は、教材プログラムの要求違反を対象とする。観測誤り試験は、プログラム自体は正しいがイベントが不足・改変される場合を対象とする。両者を混在させない。
+
+変異テストではプログラムに小さな変更を加えて検出能力を調べるが、同値変異や到達しない変異等の扱いが問題となる\cite{mutation}。本パイロットは手作業で4種類の違反を埋め込んだ段階であり、汎用変異生成器ではない。卒研では、誤りの名称、変更箇所、期待される影響、観測条件を表にして追加する。
+
+\begin{longtable}{P{28mm}P{62mm}P{60mm}}
+\toprule
+対象 & 追加候補 & 確認事項\\\midrule
+\endhead
+Strategy & 交換忘れ、誤った実体への委譲、数値だけの誤り & 出力値だけで検出可能な誤りと、呼び出し観測が必要な誤りを分ける。\\
+State & 遷移先間違い、通過回数の更新忘れ & 中間状態と最終結果の両方を調べる。\\
+Observer & 二重通知、解除忘れ、通知順序の交換 & 順序を要求しない契約で誤検出しないこと。\\
+観測系 & set欠落、call欠落、参照ID誤記、途中切断 & FAILとUNKNOWNを区別し、検出できない場合も記録する。\\
+\bottomrule
+\end{longtable}
+
+\subsection{変更の局所性}
+変更課題をあらかじめ固定し、変更したファイル集合を$M_t$、共通コアの集合を$K$とすると、課題$t$におけるコア変更数を
+\[
+ c_t=|M_t\cap K|
+\]
+で数えられる。これは理解時間ではなく、変更の広がりを示す構造的な指標である。共通コアの定義を結果に応じて変えない。
+
+説明変更、役割追加、入力追加、新しい教材の追加、新しいイベントの追加を分けて測る。コードから設定ファイルへ移した作業も変更量に含める。対照となる別実装を大規模に作り直す前に、自分の変更履歴だけで何が言えるかを整理する。
+\clearpage
+
+\section{今後の課題と検討事項}
+\subsection{卒研内で優先する事項}
+\begin{enumerate}
+\item \textbf{観測範囲の説明。} 図に出る情報が実観測か、教材注釈か、契約からの解釈かを区別する。現在の宣言型と役割は注釈である。
+\item \textbf{Java理解の確認。} 学生が、参照共有、多態性、StateとStrategyの相違をコードに即して説明できるようにする。これは研究担当者の準備であり、被験者評価ではない。
+\item \textbf{独立評価。} 新しい題材、追加の誤り、計測漏れを用意する。成功例だけを増やさない。
+\item \textbf{入力検証。} JSONスキーマの厳密化、チェックポイント内部の型検査、重複操作名、未対応の値の扱いを強化する。
+\item \textbf{結果の可読な提示。} 短い判定文、フィールドごとの差分、違反に関係する参照の強調を改善する。効果の実証とは区別する。
+\end{enumerate}
+
+\subsection{研究上の選択が必要な事項}
+\begin{description}
+\item[教材追加方式] JSONだけで追加できる範囲をどこまで求めるか。過度なDSL設計を避け、3パターンの再利用可能な条件から始める。
+\item[実行計測方式] 手動計測を維持するか、JDI等を検討するか。卒研では手動方式の限界を測定することを優先し、汎用計測器は別段階とする。
+\item[基礎教材の範囲] 今回の参照教材ではメソッド引数の値渡しや、staticとインスタンス状態の違いは未実装である。パターン追加より先に基礎を補う価値があるか検討する。
+\item[比較の目的] 正常対誤実装の比較と、パターン適用前後の設計比較は異なる。現パイロットは主に前者であり、後者は同じ要求を満たす二実装と変更課題が別途必要である。
+\item[保存と再生] 長い記録を扱う必要が出た場合のみ、チェックポイントからの途中再開や状態キャッシュを追加する。
+\end{description}
+
+\subsection{23パターンへの展開}
+23種類への対応は卒研の必須評価を終えた後の方向性である。優先度は、現在の観測で表せるか、新しい構造や意味が必要かで決める。
+\begin{longtable}{P{29mm}P{77mm}P{44mm}}
+\toprule
+段階 & 対象 & 追加の論点\\\midrule
+\endhead
+実装済み & Strategy、State、Observer & 契約の一般化と独立題材。\\
+比較的近い拡張 & Factory Method、Abstract Factory、Template Method、Adapter、Facade、Proxy、Bridge、Mediator & 生成・委譲の役割、静的構造の注釈。\\
+構造の拡張 & Composite、Decorator、Chain of Responsibility、Visitor、Interpreter & 再帰、ネストした呼び出し、二重ディスパッチ等。\\
+状態・同一性の拡張 & Builder、Prototype、Singleton、Flyweight、Command、Iterator、Memento & 構築途中、複製、共有範囲、履歴、復元。\\
+\bottomrule
+\end{longtable}
+この区分は実装工数の保証ではない。Singletonの並行実行、Prototypeの深いコピー、CommandのUndoなどは追加条件が必要であり、すべてを基本パターンの必須性質にしない。
+
+\section{たとえば、12週間の実施例と判断基準}
+もし、卒業研究としてこのテーマをやるとして、担当学生がPythonとJavaのクラスを一通り学んでいることを仮定し、週8時間、12週間で96時間を基本枠として考えるとこんな感じのスケジュールにやるんじゃないかな。
+\begin{longtable}{P{16mm}P{84mm}P{50mm}}
+\toprule
+週 & 作業 & 確認する成果\\\midrule
+\endhead
+1--2 & パイロット実行、JavaとPythonの流れ、文献読解 & 1教材の処理と観測境界を説明する。\\
+3--4 & 契約・観測仕様の明文化、独立題材の設計 & 期待結果と追加すべき観測を先に書く。\\
+5--6 & 独立題材、追加誤実装、回帰試験 & 正常・異常・観測不足を再現する。\\
+7--8 & 欠損試験、変更箇所記録、必要な修正 & 検出できた範囲と見逃した範囲の表。\\
+9--10 & 条件固定の評価、結果分析 & 実験を一括再実行し結果表を作る。\\
+11--12 & 卒論、発表、再現手順、限界の整理 & 実装原理と研究結果を区別して説明する。\\
+\bottomrule
+\end{longtable}
+第4週で観測仕様が固まらなければ新パターン追加を中止する。第8週で新機能を凍結し、評価と執筆に移る。予定どおり進んでも23種類への拡張を卒研期間内に義務化しない。
+
+\section{提供物と学生自身の研究成果の境界}
+
+卒研として学生が担う具体的な作業は、観測仕様の精査、独立題材の作成、誤実装・欠損試験の追加、変更の波及分析、結果の解釈である。新機能が少なくても、既存の仕組みの限界を再現し、原因と改善案を示せれば研究の中心になる。提供コードの量が多い場合は、最初に1教材へ絞って理解してから拡張する。
+
+\section{妥当性と未実装事項}
+本結果は、同梱の単一スレッド教材、限定した整数入力、手動計測、固定したオブジェクトIDと操作名に依存する。一般Javaの意味保存、任意コードからのパターン認識、全Java型への対応、並行実行、GC、例外経路は評価していない。
+
+クラス構造は文章による注釈表示であり、UML自動生成ではない。条件分岐実装とパターン実装の保守性比較、変更影響の自動計算、汎用契約DSL、Javaコード編集IDE、最小反例抽出も未実装である。実オブジェクトの最終結果と状態を見ていても、計測前後で振る舞いが変わらないことを一般的に保証する試験はまだない。
+
+評価データは小さく、同じ誤実装の複数入力を含むため、独立標本として有意差を計算しない。未知題材での失敗も含めた全件表を優先する。人間の学習効果や理解容易性は本研究の評価外である。
+
+\section{まとめ}
+卒業研究としてやるのであれば、少数のJava教材を忠実に可視化し、正しく表示できたかと要求を満たすかを分けて検証する計画が現実的である。Python・PyQt6の採用は、教材・表示・評価を整理するための実装条件として妥当であるが、それ自体を新規性や可読性向上の証拠とはしない。
+
+パイロットは4教材、正常・比較8記録、Java再実行、状態照合、根拠への移動、自動評価を実装し、限定したコーパスで動作を確認した。今後は機能数を増やす前に、独立題材と観測漏れ試験を追加し、適用できる範囲と限界を学生自身が示すことを優先する。
+
+\appendix
+\section{起動と評価の手順}
+配布ZIPを展開し、そのディレクトリで実行する。Python 3.10以降を想定する。
+\begin{lstlisting}
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pattern_lab
+\end{lstlisting}
+同梱記録の再生にはJDKは不要である。Java再実行にはJDK 17以降を用意する。追加Javaライブラリは不要である。
+\begin{lstlisting}
+python -m unittest discover -s tests -v
+python evaluate.py --out results/my_replay
+python evaluate.py --live --out results/my_live
+python -m pattern_lab --regenerate
+\end{lstlisting}
+PyQt6がない環境でもコアの評価は可能であり、GUI試験はスキップされる。JDKがない場合はライブ評価が失敗するため、記録再生による評価と区別する。詳細は同梱READMEと\code{docs/TRACE_FORMAT.md}を参照する。
+
+\begin{thebibliography}{99}
+\bibitem{gof}
+E. Gamma, R. Helm, R. Johnson, and J. Vlissides,
+\textit{Design Patterns: Elements of Reusable Object-Oriented Software},
+Addison-Wesley, 1994. ISBN 978-0-201-63361-0.
+\url{https://www.informit.com/store/design-patterns-elements-of-reusable-object-oriented-9780201633610}.
+
+\bibitem{jls4}
+Oracle, \textit{The Java Language Specification, Java SE 21 Edition},
+Chapter 4, Types, Values, and Variables, especially Sections 4.3.1 and 4.12.2.
+\url{https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html}.
+
+\bibitem{jls15}
+Oracle, \textit{The Java Language Specification, Java SE 17 Edition},
+Section 15.12.4.4, Locate Method to Invoke.
+\url{https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html}.
+
+\bibitem{jeliot}
+A. Moreno, N. Myller, E. Sutinen, and M. Ben-Ari,
+``Visualizing programs with Jeliot 3,''
+\textit{Proceedings of the Working Conference on Advanced Visual Interfaces},
+2004, pp. 373--376. DOI: \url{https://doi.org/10.1145/989863.989928}.
+
+\bibitem{javawiz}
+M. Weninger, S. Gr\"unbacher, and H. Pr\"ahofer,
+``JavaWiz: A Trace-Based Graphical Debugger for Software Development Education,''
+\textit{Proceedings of ICPC 2025}, pp. 1--12, 2025.
+DOI: \url{https://doi.org/10.1109/ICPC66645.2025.00023}.
+Project and publication information: \url{https://javawiz.net/}.
+
+\bibitem{pets}
+M. Weninger, ``Towards Guided Omniscient Debugging in Education Using Pedagogical Execution Traces (PETs),''
+\textit{Fourth Workshop on Future Debugging Techniques (DEBT)}, 2026, pp. 1--4.
+Publication information and abstract: \url{https://javawiz.net/}.
+
+\bibitem{javavis}
+D. Pritchard and contributors,
+\code{java_visualize}: Visualization for Java using the Online Python Tutor frontend,
+repository README. \url{https://github.com/daveagp/java_visualize}.
+
+\bibitem{mutation}
+Y. Jia and M. Harman, ``An Analysis and Survey of the Development of Mutation Testing,''
+\textit{IEEE Transactions on Software Engineering}, vol. 37, no. 5, pp. 649--678, 2011.
+DOI: \url{https://doi.org/10.1109/TSE.2010.62}.
+
+\bibitem{pyqt}
+Riverbank Computing, \textit{PyQt6 Reference Guide}.
+\url{https://www.riverbankcomputing.com/static/Docs/PyQt6/}.
+
+\bibitem{qgraphics}
+The Qt Company, \textit{Qt 6 Documentation: QGraphicsScene}.
+\url{https://doc.qt.io/qt-6/qgraphicsscene.html}.
+
+\bibitem{javacmd}
+Oracle, \textit{Java Platform, Standard Edition 17: The java Command},
+Using Source-File Mode to Launch Single-File Source-Code Programs.
+\url{https://docs.oracle.com/en/java/javase/17/docs/specs/man/java.html}.
+\end{thebibliography}
+\noindent Web資料の確認日：2026年10月4日。文献の機能記述と本実装の実測結果は区別して記載した。
+\end{document}

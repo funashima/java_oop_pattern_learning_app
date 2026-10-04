@@ -1,0 +1,25 @@
+{
+  "title": "01 参照と同一性",
+  "subtitle": "変数が違っても、参照先は同じことがある",
+  "intro": "aとbに同じBoxへの参照を持たせ、b経由で値を書き換える課題です。比較例はbに別のBoxを作るため、この課題の同一性条件に違反します。Javaとしてはどちらも有効です。",
+  "question": "b.valueを変えると、a.valueも変わるのはなぜでしょうか。",
+  "change": "b = a と b = new Box() を比較し、参照先と値の変化を説明する。",
+  "roles": {
+    "refs": "変数の保持先",
+    "box": "共有する実体",
+    "copy": "比較例の別実体"
+  },
+  "declared": {
+    "refs.a": "Box",
+    "refs.b": "Box"
+  },
+  "structure": [
+    "References は a: Box と b: Box を保持",
+    "a・bの値はBoxオブジェクトへの参照",
+    "別のオブジェクトに同じ値があっても同一とは限らない"
+  ],
+  "broken": "別のBoxを生成",
+  "source_start": 10,
+  "source_end": 26,
+  "id": "references"
+}

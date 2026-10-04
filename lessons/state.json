@@ -1,0 +1,24 @@
+{
+  "title": "03 State",
+  "subtitle": "状態オブジェクトが要求の意味を変える",
+  "intro": "GateはLockedからOpenへ遷移し、次の要求で通過回数を増やしてLockedへ戻ります。比較例では最初の状態変更を欠落させます。",
+  "question": "同じhandle呼び出しでも、最初と次の要求で結果が違うのはなぜでしょうか。",
+  "change": "Strategyと似た参照構造でも、Stateでは状態遷移の契機と要求の意味に注目する。",
+  "roles": {
+    "gate": "Context",
+    "locked": "ConcreteState",
+    "open": "ConcreteState"
+  },
+  "declared": {
+    "gate.state": "GateState"
+  },
+  "structure": [
+    "GateState: handle(gate, next)",
+    "Locked / Open は GateState を実装",
+    "Gate.state が現在の状態を表す"
+  ],
+  "broken": "解錠時の状態遷移を省略",
+  "source_start": 62,
+  "source_end": 95,
+  "id": "state"
+}

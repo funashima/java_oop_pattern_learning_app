@@ -1,0 +1,24 @@
+{
+  "title": "02 Strategy",
+  "subtitle": "Contextを変えずに、料金計算を差し替える",
+  "intro": "CheckoutはPriceという型の参照を持ち、RegularからDiscountへ交換します。比較例は選択済みの参照を無視してRegularを呼び続けます。",
+  "question": "priceの宣言型と、2回目に呼ばれるオブジェクトの型は何でしょうか。",
+  "change": "新しい料金方式を加えるとき、Price実装の追加とCheckoutの変更を分けて考える。自動追加機能は未実装。",
+  "roles": {
+    "context": "Context",
+    "regular": "ConcreteStrategy",
+    "discount": "ConcreteStrategy"
+  },
+  "declared": {
+    "context.price": "Price"
+  },
+  "structure": [
+    "Price: quote(amount)",
+    "Regular / Discount は Price を実装",
+    "Checkout は price: Price を保持し、処理を委譲"
+  ],
+  "broken": "交換後もRegularへ委譲",
+  "source_start": 28,
+  "source_end": 60,
+  "id": "strategy"
+}
