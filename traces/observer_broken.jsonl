@@ -1,4 +1,4 @@
-{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "observer", "variant": "broken", "input": 100, "java": "17.0.20", "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 1, "kind": "meta", "line": 223, "schema": 1, "lesson": "observer", "variant": "broken", "input": 100, "java": "17.0.20", "source_sha256": "500c3527ddb2545933dcf8562bee3f0cec0f3072ee21230b05fbcc7345f07578", "producer": "PatternPilot Java / manual instrumentation v0.1"}
 {"seq": 2, "kind": "new", "line": 121, "id": "subject", "type": "Subject", "fields": {"listeners": []}}
 {"seq": 3, "kind": "new", "line": 122, "id": "display_a", "type": "Display", "fields": {"value": 0, "updates": 0}}
 {"seq": 4, "kind": "new", "line": 123, "id": "display_b", "type": "Display", "fields": {"value": 0, "updates": 0}}
@@ -18,4 +18,4 @@
 {"seq": 18, "kind": "cycle_end", "line": 117, "cycle": "second"}
 {"seq": 19, "kind": "checkpoint", "line": 127, "name": "notified_again", "observed": {"subject": {"type": "Subject", "fields": {"listeners": [{"ref": "display_a"}]}}, "display_a": {"type": "Display", "fields": {"value": 100, "updates": 1}}, "display_b": {"type": "Display", "fields": {"value": 0, "updates": 0}}}}
 {"seq": 20, "kind": "result", "line": 129, "value": {"a_updates": 1, "b_updates": 0, "a_value": 100, "b_value": 0}}
-{"seq": 21, "kind": "end", "line": 149, "complete": true}
+{"seq": 21, "kind": "end", "line": 233, "complete": true}

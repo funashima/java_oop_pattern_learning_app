@@ -1,7 +1,7 @@
 # Java OOP Pattern Lab — 
 
 Python + PyQt6で、**実際のJava実行から取得した記録**を再生するデスクトップ教材です。
-参照と同一性、Strategy、State、Observerの4教材に、正常例と比較例を各1つ収録しました。
+参照と同一性、Strategy、State、Observer、Abstract Factoryの5教材に、正常例と比較例を各1つ収録しました。
 23パターン対応版や汎用Javaデバッガではありません。
 
 ## 起動（Ubuntu / Linuxを想定）
@@ -22,7 +22,7 @@ Qtのウィンドウ表示には通常のデスクトップ環境が必要です
 Linuxでxcbの依存関係エラーが出る場合は `libxcb-cursor0` 等の不足ライブラリをエラー内容に従って導入してください。
 日本語が四角になる場合は、日本語フォント（例: `fonts-noto-cjk`）を導入してください。
 
-検証環境: Python 3.12.14、PyQt6 6.11.0、Qt 6.11.0、OpenJDK 17.0.20、Linux x86_64。
+5教材版の検証環境: Python 3.12.14、PyQt6 6.12.0、Qt 6.12.0、OpenJDK 17.0.20、Linux x86_64。
 PyQt6なしでも、コアの検証とJava実行評価は標準ライブラリだけで動きます。
 
 ## 使い方
@@ -33,7 +33,7 @@ PyQt6なしでも、コアの検証とJava実行評価は標準ライブラリ�
 4. 「Javaソース」は、記録とソースのSHA-256が一致する場合に観測行を強調します。
 5. 「全記録の検証」は現在位置にかかわらず記録全体を評価します。行をクリックすると根拠の観測点へ移動します。
 6. 「正常例との比較」は同じ入力の両実装を、チェックポイント名で比較します。
-7. 入力を変える場合は、0〜10000を指定して「Javaで再実行」を押します。両variantを実行します。Stateは固定シナリオなので数値入力を使いません。
+7. 入力を変える場合は、0〜10000（Abstract Factoryは0〜255）を指定して「Javaで再実行」を押します。両variantを実行します。Stateは固定シナリオなので数値入力を使いません。
 8. JSON Linesの記録を保存・読み込みできます。外部から読み込んだ記録だけでは、対となる比較記録は用意されません。
 
 「比較例」はJavaとして不正なコードという意味ではなく、**この教材の要求に違反する実装**です。
@@ -56,23 +56,45 @@ PyQt6なしでも、コアの検証とJava実行評価は標準ライブラリ�
 # コアと、インストール済みならGUIの検査（offscreen）
 python -m unittest discover -s tests -v
 
-# 同梱8記録の再評価（JDK不要）
+# 同梱10記録の再評価（JDK不要）
 python evaluate.py --out results/my_replay
 
-# JDKによる26シナリオの評価
+# JDKによる36シナリオの評価
 python evaluate.py --live --out results/my_live
+
+# Abstract Factoryを全256入力×2 variantで評価
+python evaluate_factory.py --out results/my_factory_sweep.json
 
 # 一つの記録の検証
 python -m pattern_lab --validate traces/observer_broken.jsonl
 
-# Javaソースを変更した後、同梱8記録を更新
+# Javaソースを変更した後、同梱10記録を更新
 python -m pattern_lab --regenerate
 ```
 
-生成済み結果は `results/pilot_live/` にあります。
+既存4教材の開発時結果は `results/pilot_live/` に保存しています。
 26シナリオで86チェックポイントが一致し、正常13・比較13を所期の判定に分類しました。
 異なる誤りが13種類あるわけではありません。誤実装は4種類で、うち3教材は複数入力で実行しています。
 保持した未知実装の評価ではなく、開発用コーパスのスモーク評価です。
+
+5教材版の検証結果は `results/five_lessons_live/summary.json` と `scenarios.csv` に保存しています。
+36シナリオ・146チェックポイント、正常18件PASS・比較18件FAILを確認しました。
+`results/factory_sweep.json` は追加教材の512シナリオ・3072チェックポイントの全入力検証です。
+比較例のHex段階は、往復一致10件・値の不一致90件・ParseError 156件ですが、系列整合は全256件でFAILです。
+この検証はJavaの実行をPythonで再生・判定するもので、独立したPythonのCodec実装との比較ではありません。
+
+## Abstract Factory教材
+
+同じClientが、十進と十六進のFactoryからEncoder・Decoderを取得し、順に実行します。
+比較例はHexFactoryがDecimalDecoderを返します。入力0では偶然同じ値に戻り、16では文字列`"10"`を10へ復号し、10では`"a"`の十進解析が失敗します。
+「系列整合」「製品取得」「操作の合成」「正準表現」「往復変換」を個別に示します。
+系列ラベルは計測したフィールドであり、正しい動作の証明ではありません。
+
+既存4教材はschema 1、追加教材は文字列・戻り参照・限定した例外を扱うschema 2です。
+`new`は計測器への登録であり、JVMの割当て時点を表すとは限りません。
+`return`の説明は「操作終了時の観測値」とし、既存教材のvoid操作を戻り値と混同しないようにしています。
+全記録の判定には結果が表示されるため、授業では予測を先に書き留める手順を用います。
+詳細な課題と限界は[5教材の分析](docs/FIVE_LESSONS.md)を参照してください。
 
 ## 構成と変更場所
 
@@ -83,7 +105,9 @@ python -m pattern_lab --regenerate
 | `pattern_lab/gui.py` | PyQt6の画面と操作 |
 | `java/PatternPilot.java` | 教材と手動計測、直接観測スナップショット |
 | `lessons/*.json` | 日本語解説、問い、役割、宣言型の注釈 |
-| `traces/*.jsonl` | 同梱のJava実行記録8件 |
+| `traces/*.jsonl` | 同梱のJava実行記録10件 |
+| `evaluate_factory.py` | Abstract Factoryの全256入力・両variantの検証 |
+| `docs/FIVE_LESSONS.md` | 5教材ごとの観測・契約・反例・学習課題 |
 | `evaluate.py` | 入力別実行、CSV/JSON出力、コアの時間・メモリ測定 |
 | `tests/` | 欠損・整合性・再生・GUI操作の検査 |
 | `docs/java_oop_pattern_visualization_plan.tex` | 独立した卒研計画・実装報告・今後の課題 |

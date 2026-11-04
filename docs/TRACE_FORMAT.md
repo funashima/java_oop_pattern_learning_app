@@ -1,4 +1,4 @@
-# Trace format v1
+# Trace format v1 / v2
 
 UTF-8 JSON Lines。先頭は`meta`、連番`seq`は1から始まります。
 各行に `kind`, `line` があり、`line`は同梱Javaソース中の計測呼び出し位置です。
@@ -6,11 +6,12 @@ UTF-8 JSON Lines。先頭は`meta`、連番`seq`は1から始まります。
 
 | kind | 必須データ | 意味 |
 |---|---|---|
-| meta | schema=1, lesson, variant, input | シナリオ。runnerがsource_sha256、producerを付加 |
+| meta | schema=1または2, lesson, variant, input | シナリオ。runnerがsource_sha256、producerを付加 |
 | new | id, type, fields | 登録した実オブジェクトと、その時点のフィールド |
 | set | id, field, value | フィールド更新後の観測値 |
 | call | from, to, method, arg | 呼び出し直前の計測 |
 | return | from, value | 呼び出しから戻った後の計測 |
+| exception（v2のみ） | from, error="ParseError" | 復号のNumberFormatExceptionを正規化した操作終了 |
 | checkpoint | name, observed | Javaの登録済み実オブジェクトを直接読み取った状態 |
 | cycle_begin | cycle, members, input | Observer通知前の登録先 |
 | cycle_end | cycle | 通知ループ終了 |
@@ -27,3 +28,19 @@ UTF-8 JSON Lines。先頭は`meta`、連番`seq`は1から始まります。
 
 判定器は`variant`を正解ラベルとして使いません。評価スクリプトだけが、あらかじめ定めた実験ラベルとして使います。
 現在の契約は同梱オブジェクトIDと教材操作名に依存するため、一般的なパターン適合性判定器ではありません。
+
+## Abstract Factoryのschema 2
+
+既存4教材はschema 1の整数payloadを維持します。Abstract Factoryだけがschema 2を使います。
+`call.arg`と`return.value`にフィールド値と同じ値領域を使い、生成操作の引数なしをnull、戻り製品を`{"ref":"id"}`、符号化結果を文字列で表します。登録前のID参照は拒否します。
+各`call`は同じ受信者の`return`または`exception`で閉じます。ネスト、対応しない終了、未完了呼び出しのある`end`は拒否します。途中で切れた記録は読込可能ですが教材契約はUNKNOWNです。
+任意のJava例外を扱う機能ではありません。比較例の復号で発生するNumberFormatExceptionだけをParseErrorへ対応付けます。例外時のdecodedはnullであり、0への代替ではありません。
+
+1. decimal_products → decimal_encoded → decimal_decoded
+2. hex_products → hex_encoded → hex_decoded
+
+製品取得の呼出し先・戻り参照・Clientの保持参照を照合します。
+encodeの入力と戻り文字列、decodeに渡した文字列、戻り値／ParseErrorと結果フィールドの対応も別に検査します。
+さらに系列の注釈、指定系列の正準表現、当該入力での往復変換を別々に判定します。
+この限定した履歴検査を既存4教材へ遡って適用してはいません。
+source_sha256不一致時の行強調無効化は両版に共通です。

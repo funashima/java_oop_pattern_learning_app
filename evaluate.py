@@ -17,7 +17,8 @@ def main():
     args.out.mkdir(parents=True,exist_ok=True);rows=[]
     if args.live:(args.out/'traces').mkdir(exist_ok=True)
     for lesson in LESSONS:
-        inputs=([0,1,100,10000] if lesson!='state' else [100]) if args.live else [100]
+        inputs=([0,10,16,100,255] if lesson=='abstract_factory' else
+                [100] if lesson=='state' else [0,1,100,10000]) if args.live else [100]
         for value in inputs:
             for variant in ('normal','broken'):
                 started=time.perf_counter()
@@ -40,12 +41,12 @@ def main():
                 if args.live:save_trace(events,args.out/'traces'/f'{lesson}_{variant}_{value}.jsonl')
                 print(f"{lesson:12} {variant:6} input={value:5} integrity={row['integrity']} contract={row['contract']}")
     with (args.out/'scenarios.csv').open('w',encoding='utf-8',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
     report={'mode':'live Java' if args.live else 'bundled replay','python':platform.python_version(),
             'platform':platform.platform(),'source_sha256':source_hash(),
             'scenario_count':len(rows),'matched_count':sum(r['matched'] for r in rows),
             'integrity_checks':sum(r['checkpoints'] for r in rows),'rows':rows,
-            'limits':['自作4教材・各1誤実装。独立な未知実装への一般化は未評価。',
+            'limits':['自作5教材・各1誤実装。独立な未知実装への一般化は未評価。',
                       '再生時間は短い記録のコアのみ。GUI性能・教育効果を示さない。',
                       '反射スナップショットとイベントは同じ値変換器を共有する。完全独立な検証ではない。']}
     (args.out/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')

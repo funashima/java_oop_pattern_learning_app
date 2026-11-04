@@ -1,0 +1,4625 @@
+{
+  "python": "3.12.14",
+  "java": "17.0.20",
+  "source_sha256": "500c3527ddb2545933dcf8562bee3f0cec0f3072ee21230b05fbcc7345f07578",
+  "harness_sha256": "7b084ba0417361c4aef8145035f22bbc702c0034dabab2ed6a8a74942671f973",
+  "scenario_count": 512,
+  "integrity_checks": 3072,
+  "counts": {
+    "normal_equal": 256,
+    "broken_equal": 10,
+    "broken_parse_error": 156,
+    "broken_different": 90
+  },
+  "rows": [
+    {
+      "variant": "normal",
+      "input": 0,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 0,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 1,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 1,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 2,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 2,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 3,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 3,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 4,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 4,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 5,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 5,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 6,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 6,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 7,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 7,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 8,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 8,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 9,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 9,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 10,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 10,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 11,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 11,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 12,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 12,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 13,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 13,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 14,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 14,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 15,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 15,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 16,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 16,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 17,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 17,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 18,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 18,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 19,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 19,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 20,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 20,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 21,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 21,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 22,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 22,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 23,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 23,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 24,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 24,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 25,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 25,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 26,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 26,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 27,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 27,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 28,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 28,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 29,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 29,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 30,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 30,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 31,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 31,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 32,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 32,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 33,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 33,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 34,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 34,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 35,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 35,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 36,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 36,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 37,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 37,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 38,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 38,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 39,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 39,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 40,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 40,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 41,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 41,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 42,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 42,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 43,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 43,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 44,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 44,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 45,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 45,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 46,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 46,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 47,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 47,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 48,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 48,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 49,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 49,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 50,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 50,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 51,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 51,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 52,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 52,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 53,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 53,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 54,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 54,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 55,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 55,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 56,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 56,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 57,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 57,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 58,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 58,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 59,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 59,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 60,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 60,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 61,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 61,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 62,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 62,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 63,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 63,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 64,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 64,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 65,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 65,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 66,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 66,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 67,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 67,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 68,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 68,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 69,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 69,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 70,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 70,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 71,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 71,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 72,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 72,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 73,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 73,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 74,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 74,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 75,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 75,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 76,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 76,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 77,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 77,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 78,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 78,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 79,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 79,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 80,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 80,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 81,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 81,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 82,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 82,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 83,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 83,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 84,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 84,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 85,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 85,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 86,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 86,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 87,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 87,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 88,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 88,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 89,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 89,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 90,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 90,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 91,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 91,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 92,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 92,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 93,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 93,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 94,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 94,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 95,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 95,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 96,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 96,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 97,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 97,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 98,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 98,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 99,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 99,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 100,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 100,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 101,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 101,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 102,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 102,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 103,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 103,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 104,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 104,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 105,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 105,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 106,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 106,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 107,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 107,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 108,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 108,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 109,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 109,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 110,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 110,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 111,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 111,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 112,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 112,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 113,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 113,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 114,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 114,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 115,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 115,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 116,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 116,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 117,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 117,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 118,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 118,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 119,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 119,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 120,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 120,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 121,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 121,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 122,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 122,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 123,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 123,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 124,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 124,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 125,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 125,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 126,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 126,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 127,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 127,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 128,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 128,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 129,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 129,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 130,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 130,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 131,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 131,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 132,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 132,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 133,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 133,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 134,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 134,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 135,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 135,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 136,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 136,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 137,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 137,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 138,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 138,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 139,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 139,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 140,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 140,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 141,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 141,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 142,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 142,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 143,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 143,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 144,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 144,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 145,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 145,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 146,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 146,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 147,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 147,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 148,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 148,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 149,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 149,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 150,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 150,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 151,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 151,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 152,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 152,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 153,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 153,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 154,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 154,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 155,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 155,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 156,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 156,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 157,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 157,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 158,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 158,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 159,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 159,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 160,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 160,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 161,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 161,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 162,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 162,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 163,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 163,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 164,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 164,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 165,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 165,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 166,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 166,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 167,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 167,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 168,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 168,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 169,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 169,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 170,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 170,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 171,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 171,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 172,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 172,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 173,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 173,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 174,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 174,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 175,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 175,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 176,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 176,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 177,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 177,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 178,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 178,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 179,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 179,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 180,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 180,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 181,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 181,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 182,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 182,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 183,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 183,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 184,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 184,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 185,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 185,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 186,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 186,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 187,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 187,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 188,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 188,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 189,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 189,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 190,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 190,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 191,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 191,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 192,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 192,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 193,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 193,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 194,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 194,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 195,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 195,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 196,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 196,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 197,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 197,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 198,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 198,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 199,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 199,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 200,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 200,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 201,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 201,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 202,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 202,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 203,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 203,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 204,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 204,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 205,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 205,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 206,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 206,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 207,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 207,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 208,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 208,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 209,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 209,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 210,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 210,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 211,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 211,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 212,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 212,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 213,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 213,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 214,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 214,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 215,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 215,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 216,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 216,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 217,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 217,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 218,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 218,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 219,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 219,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 220,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 220,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 221,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 221,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 222,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 222,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 223,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 223,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 224,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 224,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 225,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 225,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 226,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 226,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 227,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 227,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 228,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 228,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 229,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 229,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 230,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 230,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 231,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 231,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 232,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 232,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 233,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 233,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 234,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 234,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 235,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 235,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 236,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 236,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 237,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 237,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 238,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 238,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 239,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 239,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 240,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 240,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 241,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 241,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 242,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 242,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 243,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 243,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 244,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 244,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 245,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 245,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 246,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 246,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 247,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 247,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 248,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 248,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 249,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 249,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 250,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 250,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 251,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 251,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 252,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 252,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 253,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 253,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 254,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 254,
+      "hex_error": null
+    },
+    {
+      "variant": "normal",
+      "input": 255,
+      "contract": "PASS",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 255,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 0,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 0,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 1,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 1,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 2,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 2,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 3,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 3,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 4,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 4,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 5,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 5,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 6,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 6,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 7,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 7,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 8,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 8,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 9,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "equal",
+      "hex_value": 9,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 10,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 11,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 12,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 13,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 14,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 15,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 16,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 10,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 17,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 11,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 18,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 12,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 19,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 13,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 20,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 14,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 21,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 15,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 22,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 16,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 23,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 17,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 24,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 18,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 25,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 19,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 26,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 27,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 28,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 29,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 30,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 31,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 32,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 20,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 33,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 21,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 34,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 22,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 35,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 23,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 36,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 24,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 37,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 25,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 38,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 26,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 39,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 27,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 40,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 28,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 41,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 29,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 42,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 43,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 44,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 45,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 46,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 47,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 48,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 30,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 49,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 31,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 50,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 32,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 51,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 33,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 52,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 34,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 53,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 35,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 54,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 36,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 55,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 37,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 56,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 38,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 57,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 39,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 58,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 59,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 60,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 61,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 62,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 63,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 64,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 40,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 65,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 41,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 66,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 42,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 67,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 43,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 68,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 44,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 69,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 45,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 70,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 46,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 71,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 47,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 72,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 48,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 73,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 49,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 74,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 75,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 76,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 77,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 78,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 79,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 80,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 50,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 81,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 51,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 82,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 52,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 83,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 53,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 84,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 54,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 85,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 55,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 86,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 56,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 87,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 57,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 88,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 58,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 89,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 59,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 90,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 91,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 92,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 93,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 94,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 95,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 96,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 60,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 97,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 61,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 98,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 62,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 99,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 63,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 100,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 64,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 101,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 65,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 102,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 66,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 103,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 67,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 104,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 68,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 105,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 69,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 106,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 107,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 108,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 109,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 110,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 111,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 112,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 70,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 113,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 71,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 114,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 72,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 115,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 73,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 116,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 74,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 117,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 75,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 118,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 76,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 119,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 77,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 120,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 78,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 121,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 79,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 122,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 123,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 124,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 125,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 126,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 127,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 128,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 80,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 129,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 81,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 130,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 82,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 131,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 83,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 132,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 84,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 133,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 85,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 134,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 86,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 135,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 87,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 136,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 88,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 137,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 89,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 138,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 139,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 140,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 141,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 142,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 143,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 144,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 90,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 145,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 91,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 146,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 92,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 147,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 93,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 148,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 94,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 149,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 95,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 150,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 96,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 151,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 97,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 152,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 98,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 153,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "different",
+      "hex_value": 99,
+      "hex_error": null
+    },
+    {
+      "variant": "broken",
+      "input": 154,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 155,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 156,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 157,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 158,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 159,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 160,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 161,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 162,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 163,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 164,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 165,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 166,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 167,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 168,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 169,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 170,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 171,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 172,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 173,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 174,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 175,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 176,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 177,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 178,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 179,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 180,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 181,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 182,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 183,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 184,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 185,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 186,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 187,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 188,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 189,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 190,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 191,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 192,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 193,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 194,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 195,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 196,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 197,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 198,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 199,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 200,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 201,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 202,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 203,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 204,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 205,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 206,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 207,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 208,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 209,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 210,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 211,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 212,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 213,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 214,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 215,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 216,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 217,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 218,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 219,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 220,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 221,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 222,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 223,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 224,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 225,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 226,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 227,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 228,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 229,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 230,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 231,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 232,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 233,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 234,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 235,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 236,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 237,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 238,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 239,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 240,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 241,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 242,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 243,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 244,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 245,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 246,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 247,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 248,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 249,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 250,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 251,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 252,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 253,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 254,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    },
+    {
+      "variant": "broken",
+      "input": 255,
+      "contract": "FAIL",
+      "integrity": "PASS",
+      "hex_outcome": "parse_error",
+      "hex_value": null,
+      "hex_error": "ParseError"
+    }
+  ],
+  "scope": "同一Java教材の全有限入力。Pythonは再生と契約判定を行う。独立Python codec実装との比較ではない。"
+}

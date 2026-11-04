@@ -54,7 +54,7 @@ class CoreTests(unittest.TestCase):
         ev=self.trace();next(e for e in ev if e['kind']=='set')['value']={'ref':'absent'}
         with self.assertRaises(TraceError):validate(ev)
     def test_unsupported_schema_rejected(self):
-        ev=self.trace();ev[0]['schema']=2
+        ev=self.trace();ev[0]['schema']=3
         with self.assertRaises(TraceError):validate(ev)
     def test_malformed_json_rejected(self):
         with self.assertRaises(TraceError):parse_trace('{')

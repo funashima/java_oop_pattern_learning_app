@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib
 import shutil
 import subprocess
-from .core import ROOT, LESSONS, TraceError, parse_trace
+from .core import ROOT, LESSONS, TraceError, parse_trace, input_max
 
 SOURCE = ROOT / "java" / "PatternPilot.java"
 
@@ -13,8 +13,8 @@ def source_hash():
 def run_java(lesson: str, variant="normal", value=100):
     if lesson not in LESSONS or variant not in ("normal", "broken"):
         raise TraceError("未知の教材またはvariantです。")
-    if type(value) is not int or not 0 <= value <= 10000:
-        raise TraceError("入力は0〜10000の整数です。")
+    if type(value) is not int or not 0 <= value <= input_max(lesson):
+        raise TraceError(f"入力は0〜{input_max(lesson)}の整数です。")
     java = shutil.which("java")
     if not java: raise RuntimeError("Javaが見つかりません。JDK 17以降を導入するか、同梱記録を再生してください。")
     command = [java, "-Xmx128m", "-Dfile.encoding=UTF-8", str(SOURCE), lesson, variant, str(value)]

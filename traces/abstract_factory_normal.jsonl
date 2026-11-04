@@ -1,0 +1,49 @@
+{"seq": 1, "kind": "meta", "line": 223, "schema": 2, "lesson": "abstract_factory", "variant": "normal", "input": 100, "java": "17.0.20", "source_sha256": "500c3527ddb2545933dcf8562bee3f0cec0f3072ee21230b05fbcc7345f07578", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 2, "kind": "new", "line": 205, "id": "client", "type": "CodecClient", "fields": {"factory": null, "encoder": null, "decoder": null}}
+{"seq": 3, "kind": "new", "line": 206, "id": "codec_result", "type": "CodecResult", "fields": {"wire": "", "decoded": null, "error": null}}
+{"seq": 4, "kind": "new", "line": 207, "id": "decimal_factory", "type": "DecimalFactory", "fields": {"family": "decimal"}}
+{"seq": 5, "kind": "new", "line": 208, "id": "hex_factory", "type": "HexFactory", "fields": {"family": "hex"}}
+{"seq": 6, "kind": "set", "line": 177, "id": "client", "field": "factory", "value": {"ref": "decimal_factory"}}
+{"seq": 7, "kind": "call", "line": 178, "from": "client", "to": "decimal_factory", "method": "createEncoder", "arg": null}
+{"seq": 8, "kind": "new", "line": 179, "id": "decimal_encoder", "type": "DecimalEncoder", "fields": {"family": "decimal"}}
+{"seq": 9, "kind": "return", "line": 179, "from": "decimal_factory", "value": {"ref": "decimal_encoder"}}
+{"seq": 10, "kind": "set", "line": 180, "id": "client", "field": "encoder", "value": {"ref": "decimal_encoder"}}
+{"seq": 11, "kind": "call", "line": 181, "from": "client", "to": "decimal_factory", "method": "createDecoder", "arg": null}
+{"seq": 12, "kind": "new", "line": 182, "id": "decimal_decoder", "type": "DecimalDecoder", "fields": {"family": "decimal"}}
+{"seq": 13, "kind": "return", "line": 182, "from": "decimal_factory", "value": {"ref": "decimal_decoder"}}
+{"seq": 14, "kind": "set", "line": 183, "id": "client", "field": "decoder", "value": {"ref": "decimal_decoder"}}
+{"seq": 15, "kind": "set", "line": 184, "id": "codec_result", "field": "wire", "value": ""}
+{"seq": 16, "kind": "set", "line": 185, "id": "codec_result", "field": "decoded", "value": null}
+{"seq": 17, "kind": "set", "line": 186, "id": "codec_result", "field": "error", "value": null}
+{"seq": 18, "kind": "checkpoint", "line": 187, "name": "decimal_products", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "decimal_factory"}, "encoder": {"ref": "decimal_encoder"}, "decoder": {"ref": "decimal_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "", "decoded": null, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}}}
+{"seq": 19, "kind": "call", "line": 188, "from": "client", "to": "decimal_encoder", "method": "encode", "arg": 100}
+{"seq": 20, "kind": "return", "line": 189, "from": "decimal_encoder", "value": "100"}
+{"seq": 21, "kind": "set", "line": 190, "id": "codec_result", "field": "wire", "value": "100"}
+{"seq": 22, "kind": "checkpoint", "line": 191, "name": "decimal_encoded", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "decimal_factory"}, "encoder": {"ref": "decimal_encoder"}, "decoder": {"ref": "decimal_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "100", "decoded": null, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}}}
+{"seq": 23, "kind": "call", "line": 192, "from": "client", "to": "decimal_decoder", "method": "decode", "arg": "100"}
+{"seq": 24, "kind": "return", "line": 194, "from": "decimal_decoder", "value": 100}
+{"seq": 25, "kind": "set", "line": 195, "id": "codec_result", "field": "decoded", "value": 100}
+{"seq": 26, "kind": "checkpoint", "line": 201, "name": "decimal_decoded", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "decimal_factory"}, "encoder": {"ref": "decimal_encoder"}, "decoder": {"ref": "decimal_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "100", "decoded": 100, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}}}
+{"seq": 27, "kind": "set", "line": 177, "id": "client", "field": "factory", "value": {"ref": "hex_factory"}}
+{"seq": 28, "kind": "call", "line": 178, "from": "client", "to": "hex_factory", "method": "createEncoder", "arg": null}
+{"seq": 29, "kind": "new", "line": 179, "id": "hex_encoder", "type": "HexEncoder", "fields": {"family": "hex"}}
+{"seq": 30, "kind": "return", "line": 179, "from": "hex_factory", "value": {"ref": "hex_encoder"}}
+{"seq": 31, "kind": "set", "line": 180, "id": "client", "field": "encoder", "value": {"ref": "hex_encoder"}}
+{"seq": 32, "kind": "call", "line": 181, "from": "client", "to": "hex_factory", "method": "createDecoder", "arg": null}
+{"seq": 33, "kind": "new", "line": 182, "id": "hex_decoder", "type": "HexDecoder", "fields": {"family": "hex"}}
+{"seq": 34, "kind": "return", "line": 182, "from": "hex_factory", "value": {"ref": "hex_decoder"}}
+{"seq": 35, "kind": "set", "line": 183, "id": "client", "field": "decoder", "value": {"ref": "hex_decoder"}}
+{"seq": 36, "kind": "set", "line": 184, "id": "codec_result", "field": "wire", "value": ""}
+{"seq": 37, "kind": "set", "line": 185, "id": "codec_result", "field": "decoded", "value": null}
+{"seq": 38, "kind": "set", "line": 186, "id": "codec_result", "field": "error", "value": null}
+{"seq": 39, "kind": "checkpoint", "line": 187, "name": "hex_products", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "hex_factory"}, "encoder": {"ref": "hex_encoder"}, "decoder": {"ref": "hex_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "", "decoded": null, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}, "hex_encoder": {"type": "HexEncoder", "fields": {"family": "hex"}}, "hex_decoder": {"type": "HexDecoder", "fields": {"family": "hex"}}}}
+{"seq": 40, "kind": "call", "line": 188, "from": "client", "to": "hex_encoder", "method": "encode", "arg": 100}
+{"seq": 41, "kind": "return", "line": 189, "from": "hex_encoder", "value": "64"}
+{"seq": 42, "kind": "set", "line": 190, "id": "codec_result", "field": "wire", "value": "64"}
+{"seq": 43, "kind": "checkpoint", "line": 191, "name": "hex_encoded", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "hex_factory"}, "encoder": {"ref": "hex_encoder"}, "decoder": {"ref": "hex_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "64", "decoded": null, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}, "hex_encoder": {"type": "HexEncoder", "fields": {"family": "hex"}}, "hex_decoder": {"type": "HexDecoder", "fields": {"family": "hex"}}}}
+{"seq": 44, "kind": "call", "line": 192, "from": "client", "to": "hex_decoder", "method": "decode", "arg": "64"}
+{"seq": 45, "kind": "return", "line": 194, "from": "hex_decoder", "value": 100}
+{"seq": 46, "kind": "set", "line": 195, "id": "codec_result", "field": "decoded", "value": 100}
+{"seq": 47, "kind": "checkpoint", "line": 201, "name": "hex_decoded", "observed": {"client": {"type": "CodecClient", "fields": {"factory": {"ref": "hex_factory"}, "encoder": {"ref": "hex_encoder"}, "decoder": {"ref": "hex_decoder"}}}, "codec_result": {"type": "CodecResult", "fields": {"wire": "64", "decoded": 100, "error": null}}, "decimal_factory": {"type": "DecimalFactory", "fields": {"family": "decimal"}}, "hex_factory": {"type": "HexFactory", "fields": {"family": "hex"}}, "decimal_encoder": {"type": "DecimalEncoder", "fields": {"family": "decimal"}}, "decimal_decoder": {"type": "DecimalDecoder", "fields": {"family": "decimal"}}, "hex_encoder": {"type": "HexEncoder", "fields": {"family": "hex"}}, "hex_decoder": {"type": "HexDecoder", "fields": {"family": "hex"}}}}
+{"seq": 48, "kind": "result", "line": 212, "value": {"decimal_value": 100, "hex_value": 100, "hex_error": null}}
+{"seq": 49, "kind": "end", "line": 233, "complete": true}

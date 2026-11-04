@@ -2,6 +2,7 @@
 import os
 os.environ.setdefault('QT_QPA_PLATFORM','offscreen')
 import unittest
+from pattern_lab.core import LESSONS
 try:
     from PyQt6.QtWidgets import QApplication
     from pattern_lab.gui import Window
@@ -16,7 +17,7 @@ class GuiTests(unittest.TestCase):
     def setUp(self):self.win=Window()
     def tearDown(self):self.win.close()
     def test_all_lessons_variants_steps_and_evidence(self):
-        for index in range(4):
+        for index in range(len(LESSONS)):
             self.win.lesson.setCurrentIndex(index)
             for variant in range(2):
                 self.win.variant.setCurrentIndex(variant)
@@ -40,5 +41,11 @@ class GuiTests(unittest.TestCase):
     def test_state_input_disabled(self):
         self.win.lesson.setCurrentIndex(2);self.assertFalse(self.win.value.isEnabled())
         self.win.lesson.setCurrentIndex(1);self.assertTrue(self.win.value.isEnabled())
+    def test_factory_input_range_and_return_to_strategy(self):
+        self.win.lesson.setCurrentIndex(LESSONS.index('abstract_factory'))
+        self.assertTrue(self.win.value.isEnabled());self.assertEqual(self.win.value.maximum(),255)
+        self.win.value.setValue(10000);self.assertEqual(self.win.value.value(),255)
+        self.win.lesson.setCurrentIndex(LESSONS.index('strategy'))
+        self.assertEqual(self.win.value.maximum(),10000)
 
 if __name__=='__main__':unittest.main()

@@ -6,7 +6,7 @@ from .core import ROOT, LESSONS, load_trace, save_trace, summary
 def main():
     ap = argparse.ArgumentParser(description="Java OOP Pattern Lab pilot")
     ap.add_argument("--validate", type=Path, help="GUIを起動せず記録を検証")
-    ap.add_argument("--regenerate", action="store_true", help="同梱8記録をJavaで再生成")
+    ap.add_argument("--regenerate", action="store_true", help="同梱10記録をJavaで再生成")
     ap.add_argument("--screenshot", type=Path, help="GUI確認用PNG")
     args = ap.parse_args()
     if args.validate:
