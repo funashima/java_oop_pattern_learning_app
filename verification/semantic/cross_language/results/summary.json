@@ -1,0 +1,117 @@
+{
+  "scope": "D={0,...,255}; canonical decimal/lowercase hex; standalone pure codec operations",
+  "trial_executions": 2560,
+  "paired_trials": 1280,
+  "paired_conversions": 256,
+  "all_normalized_observations_equal": true,
+  "exception_abstraction": {
+    "java": "NumberFormatException -> ParseError",
+    "python": "ValueError -> ParseError"
+  },
+  "summary": [
+    {
+      "language": "java",
+      "case": "decimal",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 256
+    },
+    {
+      "language": "java",
+      "case": "hex",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 256
+    },
+    {
+      "language": "java",
+      "case": "mixed",
+      "roundtrip_ok": 10,
+      "wrong_value": 90,
+      "parse_error": 156,
+      "family_ok": 0
+    },
+    {
+      "language": "java",
+      "case": "wrong_family",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 0
+    },
+    {
+      "language": "java",
+      "case": "faulty_hex",
+      "roundtrip_ok": 0,
+      "wrong_value": 256,
+      "parse_error": 0,
+      "family_ok": 256
+    },
+    {
+      "language": "python",
+      "case": "decimal",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 256
+    },
+    {
+      "language": "python",
+      "case": "hex",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 256
+    },
+    {
+      "language": "python",
+      "case": "mixed",
+      "roundtrip_ok": 10,
+      "wrong_value": 90,
+      "parse_error": 156,
+      "family_ok": 0
+    },
+    {
+      "language": "python",
+      "case": "wrong_family",
+      "roundtrip_ok": 256,
+      "wrong_value": 0,
+      "parse_error": 0,
+      "family_ok": 0
+    },
+    {
+      "language": "python",
+      "case": "faulty_hex",
+      "roundtrip_ok": 0,
+      "wrong_value": 256,
+      "parse_error": 0,
+      "family_ok": 256
+    }
+  ],
+  "numeric_and_identity_boundaries": {
+    "java": {
+      "kind": "boundary",
+      "negative_division": 0,
+      "max_plus_one": -2147483648,
+      "value_equal": true,
+      "same_identity": false
+    },
+    "python": {
+      "kind": "boundary",
+      "negative_division": -1,
+      "max_plus_one": 2147483648,
+      "value_equal": true,
+      "same_identity": false
+    }
+  },
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "java_version": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment (build 17.0.20+8-1-24.04-Ubuntu)\nOpenJDK 64-Bit Server VM (build 17.0.20+8-1-24.04-Ubuntu, mixed mode, sharing)",
+  "source_sha256": {
+    "CodecStudy.java": "1e0db4911050133da5e7ed17ac0091d5cb0fb127bac381a5489da32b651a55b5",
+    "codec_study.py": "6f263a15c0a5c9d42daa6c6499e0d3b8ffe16855c13e3ed886047939502ad9ad",
+    "run_study.py": "64a2944554873a384137376de6552320d412dc141768befb99f2ca547d58b482"
+  }
+}

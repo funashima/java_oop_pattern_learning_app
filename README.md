@@ -1,8 +1,16 @@
-# Java OOP Pattern Lab — 
+# Java OOP Pattern Lab
 
 Python + PyQt6で、**実際のJava実行から取得した記録**を再生するデスクトップ教材です。
 参照と同一性、Strategy、State、Observer、Abstract Factoryの5教材に、正常例と比較例を各1つ収録しました。
 23パターン対応版や汎用Javaデバッガではありません。
+
+## 資料の入口
+
+- [5教材の分析](docs/FIVE_LESSONS.md)：観測・契約・反例の対応。
+- [実装済み機能と授業提案](docs/TEACHING_GUIDE.md)：90分授業案と8点の採点規準案。
+- [再現手順と検証対象](docs/REPRODUCIBILITY.md)：基準版・5教材版・独立二言語実験を分けた手順。
+- [観測仕様](docs/TRACE_FORMAT.md)：イベントの意味と保証の範囲。
+- [旧4教材版の資料](docs/archive/base-a92f470/README.md)：計画・実装報告の履歴。
 
 ## 起動（Ubuntu / Linuxを想定）
 
@@ -57,20 +65,24 @@ PyQt6なしでも、コアの検証とJava実行評価は標準ライブラリ�
 python -m unittest discover -s tests -v
 
 # 同梱10記録の再評価（JDK不要）
-python evaluate.py --out results/my_replay
+python evaluate.py --out results/rerun/bundled
 
 # JDKによる36シナリオの評価
-python evaluate.py --live --out results/my_live
+python evaluate.py --live --out results/rerun/five_lessons_live
 
 # Abstract Factoryを全256入力×2 variantで評価
-python evaluate_factory.py --out results/my_factory_sweep.json
+python evaluate_factory.py --out results/rerun/factory_sweep.json
 
 # 一つの記録の検証
 python -m pattern_lab --validate traces/observer_broken.jsonl
 
-# Javaソースを変更した後、同梱10記録を更新
+# Javaソースを変更した場合に限り、同梱10記録を更新（追試だけなら実行不要）
 python -m pattern_lab --regenerate
 ```
+
+上記の追試結果は `results/rerun/` に出力し、保存済みの原結果と分けます。
+A1〜A8の境界検証と独立Java/Python比較のコード・元結果は `verification/semantic/` にあります。
+A1〜A8は固定基準版 `a92f470` を対象とします。[再現手順](docs/REPRODUCIBILITY.md)に従って別作業ツリーで実行してください。
 
 既存4教材の開発時結果は `results/pilot_live/` に保存しています。
 26シナリオで86チェックポイントが一致し、正常13・比較13を所期の判定に分類しました。
@@ -110,7 +122,11 @@ python -m pattern_lab --regenerate
 | `docs/FIVE_LESSONS.md` | 5教材ごとの観測・契約・反例・学習課題 |
 | `evaluate.py` | 入力別実行、CSV/JSON出力、コアの時間・メモリ測定 |
 | `tests/` | 欠損・整合性・再生・GUI操作の検査 |
-| `docs/java_oop_pattern_visualization_plan.tex` | 独立した卒研計画・実装報告・今後の課題 |
+| `docs/archive/base-a92f470/` | 旧4教材版の計画・実装報告（履歴資料） |
+| `docs/TEACHING_GUIDE.md` | 実装と授業提案の区別、授業手順、採点規準案 |
+| `docs/REPRODUCIBILITY.md` | 実験・対象コミット・保存結果・再実行手順の対応 |
+| `verification/semantic/` | 境界検証と独立言語間比較のコード・原結果 |
+| `tools/update_manifest.py` | Git追跡ファイルのSHA-256一覧の確認・更新 |
 | `docs/TRACE_FORMAT.md` | イベント仕様と境界 |
 
 解説・問い・役割の変更は `lessons/*.json` で行えます。
@@ -136,4 +152,5 @@ Javaソースを変更した後は、記録再生成、テスト、評価を再�
 まず1教材についてJavaコード・記録・図・判定を説明できるようにします。
 その上で、独立した題材、追加の誤実装、観測漏れ試験、教材追加の変更記録に取り組みます。
 このパイロットの実装・結果を、そのまま本人が独自に得た研究成果と扱うものではありません。
-具体的な必須・選択課題と12週間の例は同梱文書を参照してください。
+旧4教材版で検討した必須・選択課題と12週間の例は、[履歴資料](docs/archive/base-a92f470/README.md)に保存しています。
+現在の授業案は [TEACHING_GUIDE.md](docs/TEACHING_GUIDE.md) を参照してください。

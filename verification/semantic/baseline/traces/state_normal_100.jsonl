@@ -1,0 +1,17 @@
+{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "state", "variant": "normal", "input": 100, "java": "17.0.20", "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 2, "kind": "new", "line": 85, "id": "gate", "type": "Gate", "fields": {"state": null, "passed": 0}}
+{"seq": 3, "kind": "new", "line": 86, "id": "locked", "type": "Locked", "fields": {}}
+{"seq": 4, "kind": "new", "line": 87, "id": "open", "type": "Open", "fields": {}}
+{"seq": 5, "kind": "set", "line": 88, "id": "gate", "field": "state", "value": {"ref": "locked"}}
+{"seq": 6, "kind": "checkpoint", "line": 89, "name": "ready", "observed": {"gate": {"type": "Gate", "fields": {"state": {"ref": "locked"}, "passed": 0}}, "locked": {"type": "Locked", "fields": {}}, "open": {"type": "Open", "fields": {}}}}
+{"seq": 7, "kind": "call", "line": 79, "from": "gate", "to": "locked", "method": "handle", "arg": 0}
+{"seq": 8, "kind": "set", "line": 65, "id": "gate", "field": "state", "value": {"ref": "open"}}
+{"seq": 9, "kind": "return", "line": 81, "from": "locked", "value": 0}
+{"seq": 10, "kind": "checkpoint", "line": 90, "name": "unlock", "observed": {"gate": {"type": "Gate", "fields": {"state": {"ref": "open"}, "passed": 0}}, "locked": {"type": "Locked", "fields": {}}, "open": {"type": "Open", "fields": {}}}}
+{"seq": 11, "kind": "call", "line": 79, "from": "gate", "to": "open", "method": "handle", "arg": 0}
+{"seq": 12, "kind": "set", "line": 70, "id": "gate", "field": "passed", "value": 1}
+{"seq": 13, "kind": "set", "line": 71, "id": "gate", "field": "state", "value": {"ref": "locked"}}
+{"seq": 14, "kind": "return", "line": 81, "from": "open", "value": 1}
+{"seq": 15, "kind": "checkpoint", "line": 91, "name": "pass", "observed": {"gate": {"type": "Gate", "fields": {"state": {"ref": "locked"}, "passed": 1}}, "locked": {"type": "Locked", "fields": {}}, "open": {"type": "Open", "fields": {}}}}
+{"seq": 16, "kind": "result", "line": 92, "value": {"passed": 1, "state": "locked"}}
+{"seq": 17, "kind": "end", "line": 149, "complete": true}
