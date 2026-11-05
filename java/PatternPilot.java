@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.reflect.*;
 
-/** Four bounded, instrumented lessons. Not a general Java debugger. */
+/** Five bounded, instrumented lessons. Not a general Java debugger. */
 public class PatternPilot {
     static boolean broken;
     static int input;
@@ -130,20 +130,104 @@ public class PatternPilot {
                      "a_value", da.value, "b_value", db.value));
     }
 
+    // LESSON abstract_factory: products must agree on a representation.
+    interface Encoder { String encode(int value); }
+    interface Decoder { int decode(String text); }
+    interface CodecFactory {
+        Encoder createEncoder();
+        Decoder createDecoder();
+    }
+    static class DecimalEncoder implements Encoder {
+        final String family = "decimal";
+        public String encode(int value) { return Integer.toString(value); }
+    }
+    static class DecimalDecoder implements Decoder {
+        final String family = "decimal";
+        public int decode(String text) { return Integer.parseInt(text, 10); }
+    }
+    static class HexEncoder implements Encoder {
+        final String family = "hex";
+        public String encode(int value) { return Integer.toHexString(value); }
+    }
+    static class HexDecoder implements Decoder {
+        final String family = "hex";
+        public int decode(String text) { return Integer.parseInt(text, 16); }
+    }
+    static class DecimalFactory implements CodecFactory {
+        final String family = "decimal";
+        public Encoder createEncoder() { return new DecimalEncoder(); }
+        public Decoder createDecoder() { return new DecimalDecoder(); }
+    }
+    static class HexFactory implements CodecFactory {
+        final String family = "hex";
+        public Encoder createEncoder() { return new HexEncoder(); }
+        // Deliberate contract violation; both products still satisfy their Java interfaces.
+        public Decoder createDecoder() { return broken ? new DecimalDecoder() : new HexDecoder(); }
+    }
+    static class CodecResult {
+        String wire = "";
+        Integer decoded;
+        String error;
+    }
+    static class CodecClient {
+        CodecFactory factory;
+        Encoder encoder;
+        Decoder decoder;
+        void use(CodecFactory selected, String phase, int value, CodecResult result) {
+            factory = selected; p.set(this, "factory", factory);
+            p.call(this, factory, "createEncoder", null);
+            Encoder e = factory.createEncoder(); p.add(phase + "_encoder", e); p.ret(factory, e);
+            encoder = e; p.set(this, "encoder", encoder);
+            p.call(this, factory, "createDecoder", null);
+            Decoder d = factory.createDecoder(); p.add(phase + "_decoder", d); p.ret(factory, d);
+            decoder = d; p.set(this, "decoder", decoder);
+            result.wire = ""; p.set(result, "wire", result.wire);
+            result.decoded = null; p.set(result, "decoded", null);
+            result.error = null; p.set(result, "error", null);
+            p.checkpoint(phase + "_products");
+            p.call(this, encoder, "encode", value);
+            String wire = encoder.encode(value); p.ret(encoder, wire);
+            result.wire = wire; p.set(result, "wire", wire);
+            p.checkpoint(phase + "_encoded");
+            p.call(this, decoder, "decode", wire);
+            try {
+                int decoded = decoder.decode(wire); p.ret(decoder, decoded);
+                result.decoded = decoded; p.set(result, "decoded", decoded);
+            } catch (NumberFormatException ex) {
+                // Only this domain-specific failure is normalized, not arbitrary exceptions.
+                p.event("exception", map("from", p.id(decoder), "error", "ParseError"));
+                result.error = "ParseError"; p.set(result, "error", result.error);
+            }
+            p.checkpoint(phase + "_decoded");
+        }
+    }
+    static void abstractFactory() {
+        CodecClient client = new CodecClient(); p.add("client", client);
+        CodecResult result = new CodecResult(); p.add("codec_result", result);
+        CodecFactory decimal = new DecimalFactory(); p.add("decimal_factory", decimal);
+        CodecFactory hex = new HexFactory(); p.add("hex_factory", hex);
+        client.use(decimal, "decimal", input, result);
+        Integer decimalValue = result.decoded;
+        client.use(hex, "hex", input, result);
+        p.result(map("decimal_value", decimalValue, "hex_value", result.decoded, "hex_error", result.error));
+    }
+
     public static void main(String[] args) {
         lesson = args.length > 0 ? args[0] : "strategy";
         String variant = args.length > 1 ? args[1] : "normal";
         if (!variant.equals("normal") && !variant.equals("broken")) throw new IllegalArgumentException("variant");
         broken = variant.equals("broken");
         input = args.length > 2 ? Integer.parseInt(args[2]) : 100;
-        if (input < 0 || input > 10000) throw new IllegalArgumentException("input 0..10000");
-        p.event("meta", map("schema", 1, "lesson", lesson, "variant", variant,
+        int maximum = lesson.equals("abstract_factory") ? 255 : 10000;
+        if (input < 0 || input > maximum) throw new IllegalArgumentException("input 0.." + maximum);
+        p.event("meta", map("schema", lesson.equals("abstract_factory") ? 2 : 1, "lesson", lesson, "variant", variant,
             "input", input, "java", System.getProperty("java.version")));
         switch (lesson) {
             case "references": references(); break;
             case "strategy": strategy(); break;
             case "state": state(); break;
             case "observer": observer(); break;
+            case "abstract_factory": abstractFactory(); break;
             default: throw new IllegalArgumentException("unknown lesson");
         }
         p.event("end", map("complete", true));
@@ -190,10 +274,10 @@ public class PatternPilot {
         void set(Object o, String field, Object value) {
             event("set", map("id", id(o), "field", field, "value", value(value)));
         }
-        void call(Object from, Object to, String method, int arg) {
-            event("call", map("from", id(from), "to", id(to), "method", method, "arg", arg));
+        void call(Object from, Object to, String method, Object arg) {
+            event("call", map("from", id(from), "to", id(to), "method", method, "arg", value(arg)));
         }
-        void ret(Object from, int value) { event("return", map("from", id(from), "value", value)); }
+        void ret(Object from, Object value) { event("return", map("from", id(from), "value", value(value))); }
         void checkpoint(String name) {
             // Direct reflection reads current business objects; never reads emitted events.
             Map<String,Object> observed = new LinkedHashMap<>();

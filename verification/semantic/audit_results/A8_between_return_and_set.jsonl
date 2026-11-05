@@ -1,0 +1,20 @@
+{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "strategy", "variant": "normal", "input": 100, "java": "17.0.20"}
+{"seq": 2, "kind": "new", "line": 49, "id": "context", "type": "Checkout", "fields": {"price": null, "total": 0}}
+{"seq": 3, "kind": "new", "line": 50, "id": "regular", "type": "Regular", "fields": {}}
+{"seq": 4, "kind": "new", "line": 51, "id": "discount", "type": "Discount", "fields": {}}
+{"seq": 5, "kind": "set", "line": 52, "id": "context", "field": "price", "value": {"ref": "regular"}}
+{"seq": 6, "kind": "checkpoint", "line": 53, "name": "regular", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "regular"}, "total": 0}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 7, "kind": "call", "line": 41, "from": "context", "to": "regular", "method": "quote", "arg": 100}
+{"seq": 8, "kind": "return", "line": 43, "from": "regular", "value": 100}
+{"seq": 9, "kind": "checkpoint", "line": 43, "name": "audit_return_Regular", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "regular"}, "total": 100}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 10, "kind": "set", "line": 44, "id": "context", "field": "total", "value": 100}
+{"seq": 11, "kind": "checkpoint", "line": 54, "name": "first_quote", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "regular"}, "total": 100}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 12, "kind": "set", "line": 55, "id": "context", "field": "price", "value": {"ref": "discount"}}
+{"seq": 13, "kind": "checkpoint", "line": 56, "name": "switch", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "discount"}, "total": 100}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 14, "kind": "call", "line": 41, "from": "context", "to": "discount", "method": "quote", "arg": 100}
+{"seq": 15, "kind": "return", "line": 43, "from": "discount", "value": 80}
+{"seq": 16, "kind": "checkpoint", "line": 43, "name": "audit_return_Discount", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "discount"}, "total": 80}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 17, "kind": "set", "line": 44, "id": "context", "field": "total", "value": 80}
+{"seq": 18, "kind": "checkpoint", "line": 57, "name": "second_quote", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "discount"}, "total": 80}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 19, "kind": "result", "line": 58, "value": {"total": 80, "selected": "discount"}}
+{"seq": 20, "kind": "end", "line": 149, "complete": true}

@@ -1,0 +1,11 @@
+language,case,roundtrip_ok,wrong_value,parse_error,family_ok
+java,decimal,256,0,0,256
+java,hex,256,0,0,256
+java,mixed,10,90,156,0
+java,wrong_family,256,0,0,0
+java,faulty_hex,0,256,0,256
+python,decimal,256,0,0,256
+python,hex,256,0,0,256
+python,mixed,10,90,156,0
+python,wrong_family,256,0,0,0
+python,faulty_hex,0,256,0,256

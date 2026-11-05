@@ -1,0 +1,18 @@
+{"seq": 1, "kind": "meta", "line": 140, "schema": 1, "lesson": "strategy", "variant": "normal", "input": 10000, "java": "17.0.20", "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0", "producer": "PatternPilot Java / manual instrumentation v0.1"}
+{"seq": 2, "kind": "new", "line": 49, "id": "context", "type": "Checkout", "fields": {"price": null, "total": 0}}
+{"seq": 3, "kind": "new", "line": 50, "id": "regular", "type": "Regular", "fields": {}}
+{"seq": 4, "kind": "new", "line": 51, "id": "discount", "type": "Discount", "fields": {}}
+{"seq": 5, "kind": "set", "line": 52, "id": "context", "field": "price", "value": {"ref": "regular"}}
+{"seq": 6, "kind": "checkpoint", "line": 53, "name": "regular", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "regular"}, "total": 0}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 7, "kind": "call", "line": 41, "from": "context", "to": "regular", "method": "quote", "arg": 10000}
+{"seq": 8, "kind": "return", "line": 43, "from": "regular", "value": 10000}
+{"seq": 9, "kind": "set", "line": 44, "id": "context", "field": "total", "value": 10000}
+{"seq": 10, "kind": "checkpoint", "line": 54, "name": "first_quote", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "regular"}, "total": 10000}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 11, "kind": "set", "line": 55, "id": "context", "field": "price", "value": {"ref": "discount"}}
+{"seq": 12, "kind": "checkpoint", "line": 56, "name": "switch", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "discount"}, "total": 10000}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 13, "kind": "call", "line": 41, "from": "context", "to": "discount", "method": "quote", "arg": 10000}
+{"seq": 14, "kind": "return", "line": 43, "from": "discount", "value": 8000}
+{"seq": 15, "kind": "set", "line": 44, "id": "context", "field": "total", "value": 8000}
+{"seq": 16, "kind": "checkpoint", "line": 57, "name": "second_quote", "observed": {"context": {"type": "Checkout", "fields": {"price": {"ref": "discount"}, "total": 8000}}, "regular": {"type": "Regular", "fields": {}}, "discount": {"type": "Discount", "fields": {}}}}
+{"seq": 17, "kind": "result", "line": 58, "value": {"total": 8000, "selected": "discount"}}
+{"seq": 18, "kind": "end", "line": 149, "complete": true}

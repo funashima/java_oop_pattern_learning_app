@@ -1,0 +1,35 @@
+{
+  "id": "abstract_factory",
+  "title": "05 Abstract Factory",
+  "subtitle": "製品群を交換し、系列の整合と往復変換を分けて確かめる",
+  "intro": "同じCodecClientがDecimalFactory、HexFactoryの順にEncoderとDecoderを取得します。正常例では系列を揃えます。比較例のHexFactoryはDecimalDecoderを返します。型は適合しても、製品同士の意味が合うとは限りません。",
+  "question": "入力16は十六進で文字列10になります。この文字列を十進で復号すると何になりますか。入力0で往復変換が成功すれば、系列整合も成功したと言えますか。",
+  "change": "入力0・10・16を予測してから再実行し、偶然の一致・ParseError・異なる値を比較します。修正はHexFactoryのcreateDecoderで検討してください。全記録の検証には答えが表示されるため、予測を先に書き留めましょう。",
+  "broken": "HexFactoryがDecimalDecoderを返す",
+  "roles": {
+    "client": "Client（具体製品の種類で分岐しない）",
+    "codec_result": "符号化・復号の観測値",
+    "decimal_factory": "ConcreteFactory（十進）",
+    "hex_factory": "ConcreteFactory（十六進）",
+    "decimal_encoder": "ConcreteProduct：Encoder（十進）",
+    "decimal_decoder": "ConcreteProduct：Decoder（十進）",
+    "hex_encoder": "ConcreteProduct：Encoder（十六進）",
+    "hex_decoder": "ConcreteProduct：Decoder（系列を確認）"
+  },
+  "declared": {
+    "client.factory": "CodecFactory",
+    "client.encoder": "Encoder",
+    "client.decoder": "Decoder",
+    "codec_result.wire": "String",
+    "codec_result.decoded": "Integer",
+    "codec_result.error": "String"
+  },
+  "structure": [
+    "CodecFactory: createEncoder() / createDecoder()",
+    "Encoder: encode(int) → String、Decoder: decode(String) → int",
+    "系列整合とdecode(encode(x)) = xは別々の契約",
+    "対象は0〜255。入力10等では比較例のNumberFormatExceptionをParseErrorとして記録",
+    "newは計測器への登録、生成の根拠はFactory呼び出しと戻り参照の対応",
+    "往復変換則はこの教材の仕様であり、全てのAbstract Factoryに要求される法則ではない"
+  ]
+}

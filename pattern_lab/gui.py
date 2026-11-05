@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QH
     QLabel, QComboBox, QPushButton, QSpinBox, QSplitter, QTabWidget, QTextBrowser,
     QPlainTextEdit, QTextEdit, QGraphicsView, QGraphicsScene, QSlider, QTableWidget,
     QTableWidgetItem, QHeaderView, QFileDialog, QMessageBox)
-from .core import ROOT, LESSONS, load_trace, save_trace, assess, overall, replay
+from .core import ROOT, LESSONS, load_trace, save_trace, assess, overall, replay, input_max
 from .runner import run_java, source_hash, SOURCE
 
 COLORS = {"PASS": "#087e68", "FAIL": "#bb3434", "UNKNOWN": "#88600b"}
@@ -38,6 +38,17 @@ class ObjectView(QGraphicsView):
         else: super().wheelEvent(event)
     def draw_state(self, state, spec, all_ids):
         s = self.scene(); s.clear()
+        if spec.get('id') == 'abstract_factory':
+            fields = state.objects.get('client', {}).get('fields', {})
+            def reference(name, default):
+                value = fields.get(name)
+                return value.get('ref', default) if isinstance(value, dict) else default
+            factory = reference('factory', 'decimal_factory')
+            phase = 'hex' if factory == 'hex_factory' else 'decimal'
+            # Keep held products adjacent to Client: long edges must not run through inactive products.
+            front = ['client', factory, reference('encoder', phase+'_encoder'),
+                     reference('decoder', phase+'_decoder'), 'codec_result']
+            all_ids = list(dict.fromkeys(oid for oid in front + all_ids if oid in all_ids))
         pos = {oid: (35+(i%2)*345, 40+(i//2)*235) for i,oid in enumerate(all_ids)}
         width, height = 268, 166
         def label(text, x, y, size=10, color='#17344a', max_width=None):
@@ -47,7 +58,9 @@ class ObjectView(QGraphicsView):
         def edge(src,dst,text,dashed=False):
             if src not in state.objects or dst not in state.objects: return
             x,y=pos[src]; xx,yy=pos[dst]
-            if x==xx: a=QPointF(x+width/2,y+height); b=QPointF(xx+width/2,yy)
+            if y!=yy:
+                a=QPointF(x+width/2,y+(height if yy>y else 0))
+                b=QPointF(xx+width/2,yy+(0 if yy>y else height))
             else:
                 a=QPointF(x+(width if xx>x else 0),y+height/2)
                 b=QPointF(xx+(0 if xx>x else width),yy+height/2)
@@ -77,6 +90,7 @@ class ObjectView(QGraphicsView):
                 def valstr(v):
                     if isinstance(v,dict): return '→ '+v['ref']
                     if isinstance(v,list): return '['+', '.join(valstr(x) for x in v)+']'
+                    if isinstance(v,str): return json.dumps(v,ensure_ascii=False)
                     return 'null' if v is None else str(v)
                 lines.append(f"{f}{': '+typ if typ else ''} = {valstr(v)}")
             label('\n'.join(lines) or '（観測するフィールドなし）',x+9,y+63,9,'#274455',width-18)
@@ -148,9 +162,10 @@ class Window(QMainWindow):
         self.activate(self.pairs[variant])
     def activate(self,events):
         self.timer.stop(); self.play.setText('自動再生'); self.events=events
-        self.spec=self.specs[events[0]['lesson']];self.value.setValue(events[0]['input'])
+        self.spec=self.specs[events[0]['lesson']]
+        self.value.setRange(0,input_max(events[0]['lesson']));self.value.setValue(events[0]['input'])
         self.value.setEnabled(events[0]['lesson'] != 'state')
-        self.value.setToolTip('State教材では入力値を使いません。' if events[0]['lesson']=='state' else '0〜10000。変更後はJavaで再実行してください。')
+        self.value.setToolTip('State教材では入力値を使いません。' if events[0]['lesson']=='state' else f"0〜{input_max(events[0]['lesson'])}。変更後はJavaで再実行してください。")
         self.subtitle.setText(self.spec['subtitle']+'　｜ '+('正常例' if events[0]['variant']=='normal' else self.spec['broken']))
         self.lesson_text.setHtml('<h2>'+html.escape(self.spec['title'])+'</h2><p>'+html.escape(self.spec['intro'])+'</p><h3>考えてみる</h3><p>'+html.escape(self.spec['question'])+'</p><h3>構造（教材作者の注釈）</h3><ul>'+''.join('<li>'+html.escape(x)+'</li>' for x in self.spec['structure'])+'</ul><h3>変更と比較</h3><p>'+html.escape(self.spec['change'])+'</p><p>対象は同梱教材の明示的な観測点です。任意のJavaプログラムを解析するデバッガではありません。</p>')
         self.source_matches=events[0].get('source_sha256')==source_hash()
@@ -200,11 +215,12 @@ class Window(QMainWindow):
         if n>=len(self.events): self.timer.stop();self.play.setText('自動再生')
     def explain(self,e):
         k=e['kind']
-        if k=='new': return f"{e['id']} は {e['type']} のインスタンス。"
-        if k=='set': return f"{e['id']}.{e['field']} の観測値が {e['value']} になりました。"
+        if k=='new': return f"{e['id']} を {e['type']} のインスタンスとして計測器に登録しました。"
+        if k=='set': return f"{e['id']}.{e['field']} の観測値が {json.dumps(e['value'],ensure_ascii=False)} になりました。"
         if k=='call': return f"{e['from']} から {e['to']} の {e['method']} を呼び出します。"
         if k=='checkpoint':return 'Javaオブジェクトを直接読み取り、記録からの再構成と照合する地点です。'
-        if k=='return':return f"{e['from']} から {e['value']} を返しました。"
+        if k=='return':return f"{e['from']} の操作終了を記録。観測値: {json.dumps(e['value'],ensure_ascii=False)}。"
+        if k=='exception':return f"{e['from']} の復号で {e['error']}。復号値は未確定です。"
         if k=='cycle_begin':return '現在の登録先を基準に、通知サイクルを開始します。'
         if k=='result':return str(e['value'])
         return '実行記録の境界イベントです。'

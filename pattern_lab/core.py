@@ -8,9 +8,12 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSONS = ("references", "strategy", "state", "observer")
-KINDS = {"meta", "new", "set", "call", "return", "checkpoint", "result", "end", "cycle_begin", "cycle_end"}
+LESSONS = ("references", "strategy", "state", "observer", "abstract_factory")
+KINDS = {"meta", "new", "set", "call", "return", "exception", "checkpoint", "result", "end", "cycle_begin", "cycle_end"}
 MAX_BYTES, MAX_EVENTS = 5_000_000, 20_000
+
+def input_max(lesson):
+    return 255 if lesson == "abstract_factory" else 10000
 
 class TraceError(ValueError):
     pass
@@ -61,23 +64,30 @@ def validate(events: list[dict]):
     if not isinstance(events[0], dict) or events[0].get("kind") != "meta":
         raise TraceError("先頭にmetaイベントが必要です。")
     meta = events[0]
-    if type(meta.get("schema")) is not int or meta["schema"] != 1 or meta.get("lesson") not in LESSONS:
+    if type(meta.get("schema")) is not int or meta["schema"] not in (1, 2) or meta.get("lesson") not in LESSONS:
         raise TraceError("未対応のスキーマまたは教材です。")
+    version = meta["schema"]
+    if (meta["lesson"] == "abstract_factory") != (version == 2):
+        raise TraceError("Abstract Factoryはschema 2、既存4教材はschema 1を使用します。")
     if meta.get("variant") not in ("normal", "broken"):
         raise TraceError("未対応のvariantです。")
-    if type(meta.get("input")) is not int or not 0 <= meta["input"] <= 10000:
-        raise TraceError("入力は0〜10000の整数です。")
+    if type(meta.get("input")) is not int or not 0 <= meta["input"] <= input_max(meta["lesson"]):
+        raise TraceError(f"入力は0〜{input_max(meta['lesson'])}の整数です。")
     required = {
         "new": {"id": str, "type": str, "fields": dict},
         "set": {"id": str, "field": str},
         "call": {"from": str, "to": str, "method": str, "arg": int},
         "return": {"from": str, "value": int},
+        "exception": {"from": str, "error": str},
         "checkpoint": {"name": str, "observed": dict},
         "result": {"value": dict}, "end": {"complete": bool},
         "cycle_begin": {"cycle": str, "members": list, "input": int},
         "cycle_end": {"cycle": str},
     }
-    ids, fields, ended = set(), {}, False
+    if version == 2:
+        required["call"].pop("arg")
+        required["return"].pop("value")
+    ids, fields, ended, pending = set(), {}, False, None
     def value_ok(v, depth=0):
         if depth > 12: raise TraceError("入れ子が深すぎます。")
         if v is None or type(v) in (str, bool, int): return
@@ -103,11 +113,26 @@ def validate(events: list[dict]):
             if e["id"] not in ids or e["field"] not in fields[e["id"]] or "value" not in e:
                 raise TraceError("未定義のオブジェクトまたはフィールドです。")
             value_ok(e["value"])
-        if k in ("call", "return"):
+        if k in ("call", "return", "exception"):
             for f in (("from", "to") if k == "call" else ("from",)):
                 if e[f] not in ids: raise TraceError("呼び出し対象が未生成です。")
+            if k == "exception" and (version != 2 or e["error"] != "ParseError"):
+                raise TraceError("未対応の例外イベントです。")
+            if version == 2:
+                if k in ("call", "return"):
+                    payload = "arg" if k == "call" else "value"
+                    if payload not in e: raise TraceError(f"{payload}がありません。")
+                    value_ok(e[payload])
+                if k == "call":
+                    if pending is not None: raise TraceError("schema 2教材はネストした呼び出しに未対応です。")
+                    pending = e["to"]
+                else:
+                    if pending != e["from"]: raise TraceError("呼び出しと終了イベントが対応しません。")
+                    pending = None
         if k == "cycle_begin": value_ok(e["members"])
-        if k == "end": ended = True
+        if k == "end":
+            if version == 2 and pending is not None: raise TraceError("未完了の呼び出しがあります。")
+            ended = True
 
 
 def step(state: ReplayState, event: dict) -> None:
@@ -117,7 +142,7 @@ def step(state: ReplayState, event: dict) -> None:
     elif k == "set":
         state.objects[event["id"]]["fields"][event["field"]] = copy.deepcopy(event["value"])
     elif k == "call": state.last_call = copy.deepcopy(event)
-    elif k == "return": state.last_call = None
+    elif k in ("return", "exception"): state.last_call = None
     elif k == "result": state.result = copy.deepcopy(event["value"])
     state.event = event
 
@@ -158,7 +183,9 @@ def assess(events: list[dict]) -> list[Finding]:
     complete = events[-1]["kind"] == "end" and events[-1].get("complete") is True
     lesson, x = events[0]["lesson"], events[0]["input"]
     required = {"references": {"alias", "write"}, "strategy": {"regular", "first_quote", "switch", "second_quote"},
-                "state": {"ready", "unlock", "pass"}, "observer": {"subscribed", "notified", "removed", "notified_again"}}[lesson]
+                "state": {"ready", "unlock", "pass"}, "observer": {"subscribed", "notified", "removed", "notified_again"},
+                "abstract_factory": {f"{phase}_{point}" for phase in ("decimal", "hex")
+                                     for point in ("products", "encoded", "decoded")}}[lesson]
     has_cycles = lesson != "observer" or set(cycles) == {"first", "second"} and all(c["end"] for c in cycles.values())
     if not complete or state.result is None or not required.issubset(checkpoints) or not has_cycles:
         findings.append(Finding("contract", "UNKNOWN", "教材契約は未判定", "完了記録・必須観測点・通知境界のいずれかが不足。", []))
@@ -181,7 +208,7 @@ def assess(events: list[dict]) -> list[Finding]:
         add("contract", field_at("unlock", "gate", "state") == {"ref": "open"},
             "解錠後の状態", "解錠要求の後はOpenを保持する。", [checkpoints["unlock"][1]])
         expected = {"passed": 1, "state": "locked"}
-    else:
+    elif lesson == "observer":
         for name, cy in cycles.items():
             members = [v["ref"] for v in cy["begin"]["members"]]
             delivered = [e["to"] for e in cy["calls"]]
@@ -189,6 +216,10 @@ def assess(events: list[dict]) -> list[Finding]:
                 f"登録先: {members} / 実際の呼び出し先: {delivered}",
                 [cy["begin"]["seq"], *[c["seq"] for c in cy["calls"]], cy["end"]["seq"]])
         expected = {"a_updates": 2, "b_updates": 1, "a_value": x+1, "b_value": x}
+    else:
+        from .factory_contract import assess_factory
+        findings.extend(assess_factory(events, checkpoints))
+        expected = {"decimal_value": x, "hex_value": x, "hex_error": None}
     results = [e for e in events if e["kind"] == "result"]
     add("contract", state.result == expected, "最終結果", f"期待: {expected} / 実際: {state.result}", [results[-1]["seq"]])
     return findings

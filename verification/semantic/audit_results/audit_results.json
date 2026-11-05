@@ -1,0 +1,77 @@
+{
+  "commit": "a92f4705f968d753952adaa7f5398e38c81d6a85",
+  "source_sha256": "c909c0c560ec78ccfd82d451a862a201b8352cd93711aad1dfbf88944270aef0",
+  "python": "3.12.14",
+  "java": "openjdk 17.0.20 2026-07-21",
+  "scope": "Eight targeted boundary checks, not a detection-accuracy benchmark.",
+  "rows": [
+    {
+      "case": "A1_strategy_zero",
+      "integrity": "PASS",
+      "contract": "FAIL",
+      "integrity_failures": 0,
+      "equal_final_results": true,
+      "equal_all_checkpoints": true,
+      "normal_targets": [
+        "regular",
+        "discount"
+      ],
+      "broken_targets": [
+        "regular",
+        "regular"
+      ]
+    },
+    {
+      "case": "A2_missing_call",
+      "integrity": "PASS",
+      "contract": "FAIL",
+      "integrity_failures": 0
+    },
+    {
+      "case": "A3_wrong_logged_argument",
+      "integrity": "PASS",
+      "contract": "PASS",
+      "integrity_failures": 0,
+      "logged_arguments": [
+        1099,
+        1099,
+        1100
+      ]
+    },
+    {
+      "case": "A4_reverse_notification",
+      "integrity": "PASS",
+      "contract": "PASS",
+      "integrity_failures": 0,
+      "notification_targets": [
+        "display_b",
+        "display_a",
+        "display_a"
+      ]
+    },
+    {
+      "case": "A5_missing_set",
+      "integrity": "FAIL",
+      "contract": "PASS",
+      "integrity_failures": 1
+    },
+    {
+      "case": "A6_corrupt_checkpoint",
+      "integrity": "FAIL",
+      "contract": "PASS",
+      "integrity_failures": 1
+    },
+    {
+      "case": "A7_missing_end",
+      "integrity": "PASS",
+      "contract": "UNKNOWN",
+      "integrity_failures": 0
+    },
+    {
+      "case": "A8_between_return_and_set",
+      "integrity": "FAIL",
+      "contract": "PASS",
+      "integrity_failures": 2
+    }
+  ]
+}

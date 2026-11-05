@@ -1,0 +1,4 @@
+# Keep the original evidence bytes, including CSV CRLF line endings.
+/verification/semantic/** -text
+/docs/archive/base-a92f470/*.tex -text
+/verification/semantic/**/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
